@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Every Rock Turned — Jonathan Stephens</title>
+  <meta name="description" content="I claim to have found the correct equation. If you can defeat it logically, scientifically — I want to know.">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f0e0d;
+      --text: #e8e4de;
+      --muted: #9a9590;
+      --dim: #6b6560;
+      --faint: #5a5550;
+      --ghost: #3a3835;
+      --border: #2a2825;
+      --surface: rgba(255,255,255,0.02);
+      --font: 'EB Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ——— HERO ——— */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 40% at 50% 40%, rgba(232,228,222,0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+
+    .hero-byline {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title span { color: var(--muted); }
+
+    .hero-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--ghost);
+      margin: 0 auto 2rem;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: #8a8580;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-challenge {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 500;
+      font-style: italic;
+      color: #c5c0ba;
+      margin-bottom: 3rem;
+    }
+
+    .hero-challenge strong { color: var(--text); font-style: italic; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2.5rem;
+      background: var(--text);
+      color: var(--bg);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint .line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, transparent, var(--ghost));
+    }
+
+    .scroll-hint .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ghost);
+      margin-top: 4px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ——— SECTIONS ——— */
+    section { padding: 5rem 1.5rem; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--faint);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    /* ——— SLIDESHOW ——— */
+    .slideshow-container {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      height: 480px;
+      border-radius: 12px;
+      border: 1px solid #1a1918;
+      background: rgba(255,255,255,0.015);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.7s ease;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    .slide-image-frame {
+      width: 200px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+
+    .slide-image-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: brightness(0.85) contrast(1.1);
+    }
+
+    .slide-image-frame .placeholder {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ghost);
+    }
+
+    .slide h3 {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .slide p {
+      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 1.5rem;
+    }
+
+    .slide-dot {
+      height: 2px;
+      border-radius: 1px;
+      background: var(--ghost);
+      width: 8px;
+      transition: all 0.5s;
+    }
+
+    .slide-dot.active {
+      width: 24px;
+      background: var(--text);
+    }
+
+    .slide-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--dim);
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: var(--font);
+    }
+
+    .slide-nav:hover { background: rgba(255,255,255,0.1); }
+    .slide-nav.prev { left: 12px; }
+    .slide-nav.next { right: 12px; }
+
+    /* ——— QUOTE ——— */
+    .quote-section { text-align: center; max-width: 640px; margin: 0 auto; }
+    .quote-rule { width: 48px; height: 1px; background: var(--border); margin: 0 auto 3rem; }
+
+    blockquote {
+      font-size: clamp(1.15rem, 3vw, 1.75rem);
+      font-style: italic;
+      font-weight: 500;
+      color: #c5c0ba;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .quote-attr { font-size: 0.85rem; color: var(--faint); }
+
+    /* ——— CHALLENGE ——— */
+    .challenge-box {
+      max-width: 640px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 2rem;
+    }
+
+    .challenge-box textarea {
+      width: 100%;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 1rem;
+      resize: none;
+      line-height: 1.6;
+    }
+
+    .challenge-box textarea:focus {
+      outline: none;
+      border-color: var(--dim);
+    }
+
+    .challenge-box textarea::placeholder { color: var(--faint); }
+
+    .challenge-btn {
+      margin-top: 1rem;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: var(--border);
+      color: var(--faint);
+    }
+
+    .challenge-btn.ready {
+      background: var(--text);
+      color: var(--bg);
+      cursor: pointer;
+    }
+
+    .challenge-response {
+      font-size: 0.95rem;
+      color: #c5c0ba;
+      line-height: 1.8;
+      white-space: pre-wrap;
+    }
+
+    .challenge-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 0;
+    }
+
+    .loading-dots {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .loading-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text);
+      animation: pulse 1.4s infinite ease-in-out;
+    }
+
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1); }
+    }
+
+    .try-again {
+      margin-top: 1.5rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* ——— LANGAN ——— */
+    .langan { text-align: center; max-width: 640px; margin: 0 auto; padding: 3rem 1.5rem; }
+    .langan blockquote { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--muted); }
+    .langan .quote-attr { font-size: 0.8rem; }
+
+    /* ——— FOOTER ——— */
+    footer {
+      padding: 4rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid #1a1918;
+    }
+
+    footer p { font-size: 0.8rem; color: var(--faint); margin-bottom: 0.5rem; }
+    footer .tagline { font-size: 0.7rem; color: var(--ghost); }
+
+    /* ——— RESPONSIVE ——— */
+    @media (max-width: 640px) {
+      .slideshow-container { height: 420px; }
+      .slide-image-frame { width: 160px; height: 110px; }
+      .slide-nav { width: 32px; height: 32px; font-size: 1rem; }
+      .slide-nav.prev { left: 6px; }
+      .slide-nav.next { right: 6px; }
+      .challenge-box { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════ HERO ══════ -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-byline">Jonathan Stephens</p>
+      <h1 class="hero-title">UNDER EVERY<br><span>ROCK TURNED</span></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">
+        I tried to turn every rock I could find. I addressed what I believed were the strongest
+        arguments against what's in these pages.
+      </p>
+      <p class="hero-challenge">
+        You might not think I picked the right ones.<br>
+        <strong>Fair. Let's hear yours.</strong>
+      </p>
+      <a href="#challenge" class="btn">TEST THE EQUATION</a>
+    </div>
+    <div class="scroll-hint">
+      <div class="line"></div>
+      <div class="dot"></div>
+    </div>
+  </section>
+
+  <!-- ══════ SLIDESHOW ══════ -->
+  <section>
+    <p class="section-label">The Evidence</p>
+    <h2 class="section-title">Every Rock I Turned</h2>
+
+    <div class="slideshow-container" id="slideshow">
+      <!-- Slides rendered by JS -->
+      <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
+      <button class="slide-nav next" onclick="changeSlide(1)">›</button>
+    </div>
+  </section>
+
+  <!-- ══════ THE CLAIM ══════ -->
+  <section>
+    <div class="quote-section">
+      <div class="quote-rule"></div>
+      <blockquote>
+        "I claim, in essence, to have found the correct equation. If you can defeat it logically,
+        scientifically — I want to know. I want to identify the gaps."
+      </blockquote>
+      <p class="quote-attr">— Jonathan Stephens</p>
+      <div class="quote-rule" style="margin-top: 3rem;"></div>
+    </div>
+  </section>
+
+  <!-- ══════ THE CHALLENGE ══════ -->
+  <section id="challenge">
+    <p class="section-label">The Challenge</p>
+    <h2 class="section-title">If It Cuts, I'll Bleed</h2>
+    <p style="text-align:center; color:#8a8580; max-width:520px; margin:0 auto 3rem; font-size:clamp(0.85rem, 2vw, 1.1rem); line-height:1.7;">
+      This is not a debate forum. There are no moderators, no comment sections, no noise.
+      Just the equation and your best argument against it. Enter your objection. The system
+      processes it against the full framework of the book. If your argument holds, it says so.
+      If it doesn't, it shows why. No spin. No ministry voice. Just math.
+    </p>
+
+    <div class="challenge-box" id="challengeBox">
+      <textarea id="challengeInput" rows="5" placeholder="Enter your strongest argument against what's in these pages..."></textarea>
+      <button class="challenge-btn" id="challengeBtn" onclick="submitChallenge()">TEST THE EQUATION</button>
+    </div>
+  </section>
+
+  <!-- ══════ LANGAN ══════ -->
+  <section>
+    <div class="langan">
+      <blockquote>
+        "Reality has an identity… Once you begin to deduce its properties… you get to God."
+      </blockquote>
+      <p class="quote-attr">Christopher Langan — estimated IQ 190–210</p>
+    </div>
+  </section>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer>
+    <p>Under Every Rock Turned · Jonathan Stephens · 2026</p>
+    <p class="tagline">The truth does not need my protection. It needs your examination.</p>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════════════════════
+    // SLIDE DATA — Replace "image" values with your image URLs
+    // ═══════════════════════════════════════════════════════
+    const slides = [
+      {
+        id: "flagellum",
+        title: "The Bacterial Flagellum",
+        text: "40 protein components. 17,000 RPM. Remove one part — it doesn't work less well. It doesn't work at all.",
+        image: null, // ← YOUR IMAGE URL
+        placeholder: "FLAGELLUM"
+      },
+      {
+        id: "mousetrap",
+        title: "The Mousetrap",
+        text: "A mousetrap with four out of five parts does not catch mice poorly. It does not catch mice at all. That is irreducible complexity.",
+        image: null,
+        placeholder: "MOUSETRAP"
+      },
+      {
+        id: "soundboard",
+        title: "The Soundboard",
+        text: "200 dials. Each with billions of positions. Only one combination produces a universe. You're listening to it right now.",
+        image: null,
+        placeholder: "SOUNDBOARD"
+      },
+      {
+        id: "constants",
+        title: "The Cosmological Constant",
+        text: "Off by 10¹²⁰ — the worst prediction in the history of physics. The framework that tells us the age of the universe can't get its own math right.",
+        image: null,
+        placeholder: "10¹²⁰"
+      },
+      {
+        id: "sphere",
+        title: "The Sphere",
+        text: "Every line from the center is a possible path. From outside every dimension, all paths are visible simultaneously. That is what holds you.",
+        image: null,
+        placeholder: "SPHERE"
+      },
+      {
+        id: "entropy",
+        title: "Initial Entropy",
+        text: "Penrose calculated: 1 in 10^(10¹²³). A number so large that writing it out would require more digits than there are particles in the universe.",
+        image: null,
+        placeholder: "10^10¹²³"
+      },
+      {
+        id: "codependence",
+        title: "Biological Co-Dependence",
+        text: "Bees can't survive without flowers. Flowers can't reproduce without bees. What did they eat before each other existed?",
+        image: null,
+        placeholder: "CO-DEPENDENCE"
+      },
+      {
+        id: "water",
+        title: "The Properties of Water",
+        text: "Expands when it freezes. Near-universal solvent. Moderates planetary temperature. None of this is inevitable. All of it is necessary.",
+        image: null,
+        placeholder: "H₂O"
+      },
+      {
+        id: "shroud",
+        title: "The Shroud of Turin",
+        text: "200 nanometers deep. 3D-encoded. Blood before image. Wrist wounds no medieval artist depicted correctly. No one can reproduce it.",
+        image: null,
+        placeholder: "SHROUD"
+      },
+      {
+        id: "martyrs",
+        title: "A Vast Multitude",
+        text: "Parents watched their children die. All they had to do was say one sentence. Not one of them did. People do not die for lies they know are lies.",
+        image: null,
+        placeholder: "FIRE"
+      }
+    ];
+
+    // ═══════════════════════════════════════════════════════
+    // SLIDESHOW ENGINE
+    // ═══════════════════════════════════════════════════════
+    let current = 0;
+    let timer;
+
+    function renderSlides() {
+      const container = document.getElementById('slideshow');
+      const navPrev = container.querySelector('.prev');
+      const navNext = container.querySelector('.next');
+
+      slides.forEach((s, i) => {
+        const div = document.createElement('div');
+        div.className = 'slide' + (i === 0 ? ' active' : '');
+        div.id = 'slide-' + i;
+
+        const imgFrame = s.image
+          ? `<img src="${s.image}" alt="${s.title}">`
+          : `<span class="placeholder">${s.placeholder}</span>`;
+
+        const dots = slides.map((_, di) =>
+          `<div class="slide-dot${di === i ? ' active' : ''}"></div>`
+        ).join('');
+
+        div.innerHTML = `
+          <div class="slide-image-frame">${imgFrame}</div>
+          <h3>${s.title}</h3>
+          <p>${s.text}</p>
+          <div class="slide-dots">${dots}</div>
+        `;
+
+        container.insertBefore(div, navPrev);
+      });
+
+      startTimer();
+    }
+
+    function changeSlide(dir) {
+      const prev = current;
+      current = (current + dir + slides.length) % slides.length;
+      updateSlide(prev);
+      clearInterval(timer);
+      startTimer();
+    }
+
+    function updateSlide(prev) {
+      document.getElementById('slide-' + prev).className = 'slide';
+      document.getElementById('slide-' + current).className = 'slide active';
+    }
+
+    function startTimer() {
+      timer = setInterval(() => {
+        const prev = current;
+        current = (current + 1) % slides.length;
+        updateSlide(prev);
+      }, 5000);
+    }
+
+    renderSlides();
+
+    // ═══════════════════════════════════════════════════════
+    // CHALLENGE INPUT
+    // ═══════════════════════════════════════════════════════
+    const input = document.getElementById('challengeInput');
+    const btn = document.getElementById('challengeBtn');
+
+    input.addEventListener('input', () => {
+      if (input.value.trim()) {
+        btn.className = 'challenge-btn ready';
+      } else {
+        btn.className = 'challenge-btn';
+      }
+    });
+
+    async function submitChallenge() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      const box = document.getElementById('challengeBox');
+
+      // Show loading
+      box.innerHTML = `
+        <div class="challenge-loading">
+          <div class="loading-dots"><span></span><span></span><span></span></div>
+          <p style="font-size:0.85rem; color:var(--dim);">Processing against the equation...</p>
+        </div>
+      `;
+
+      try {
+        const res = await fetch('/api/challenge', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ argument: text })
+        });
+
+        const data = await res.json();
+
+        box.innerHTML = `
+          <div class="challenge-response">${data.response || data.error || 'Something went wrong. Try again.'}</div>
+          <button class="try-again" onclick="resetChallenge()">TRY ANOTHER</button>
+        `;
+      } catch (err) {
+        box.innerHTML = `
+          <div class="challenge-response">Something went wrong. Please try again.</div>
+          <button class="try-again" onclick="resetChallenge()">TRY AGAIN</button>
+        `;
+      }
+    }
+
+    function resetChallenge() {
+      const box = document.getElementById('challengeBox');
+      box.innerHTML = `
+        <textarea id="challengeInput" rows="5" placeholder="Enter your strongest argument against what's in these pages..."></textarea>
+        <button class="challenge-btn" id="challengeBtn" onclick="submitChallenge()">TEST THE EQUATION</button>
+      `;
+      // Re-bind input listener
+      const newInput = document.getElementById('challengeInput');
+      const newBtn = document.getElementById('challengeBtn');
+      newInput.addEventListener('input', () => {
+        newBtn.className = newInput.value.trim() ? 'challenge-btn ready' : 'challenge-btn';
+      });
+    }
+  </script>
+</body>
+</html>
