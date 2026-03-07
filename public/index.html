@@ -11,14 +11,13 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#0b0907;--deep:#131008;--paper:#f4efe5;--aged:#e6dcc8;
-  --rust:#8b3a2a;--rust-l:#b5442f;--gold:#c9a84c;--gold-l:#e2c46a;
-  --muted:#6b6052;--faint:#cec3ae;--dim:#2a2318;
+  --rust:#8b3a2a;--rust-l:#b5442f;--gold:#c9a84c;
+  --muted:#6b6052;--faint:#cec3ae;
 }
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--paper);font-family:'Libre Baskerville',Georgia,serif;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
 
-/* UTILS */
 .label{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--paper);line-height:1.1;margin-bottom:12px}
 .section-sub{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--muted)}
@@ -43,7 +42,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .endorse-quote{font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,30px);font-style:italic;color:var(--paper);line-height:1.55;margin-bottom:28px;position:relative;padding:0 20px}
 .endorse-quote::before{content:'\201C';position:absolute;left:-8px;top:-16px;font-size:5em;color:var(--rust);opacity:.25;line-height:1;font-family:'Playfair Display',serif}
 .endorse-name{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.15em;color:var(--rust-l)}
-.endorse-cred{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--muted);margin-top:4px;letter-spacing:.08em}
+.endorse-cred{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--muted);margin-top:4px;letter-spacing:.08em;line-height:1.8}
 
 /* BOOK */
 .book{padding:100px 24px;background:var(--ink)}
@@ -66,51 +65,48 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .sample-title{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--paper);margin-bottom:16px;line-height:1.2}
 .sample-excerpt{font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.8;color:var(--faint);font-style:italic}
 
-/* EQUATION */
-.equation{padding:100px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.03)}
-.equation-inner{max-width:840px;margin:0 auto}
-.eq-card{background:#0f0c08;border:1px solid rgba(201,168,76,.15);padding:48px 52px;margin-top:48px}
-.eq-formula{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,52px);font-style:italic;color:var(--gold);text-align:center;margin-bottom:10px}
-.eq-def{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--muted);text-align:center;letter-spacing:.15em;margin-bottom:48px}
-.eq-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
-.pillar{border-left:2px solid rgba(201,168,76,.3);padding-left:16px}
-.pillar-n{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--gold);line-height:1;margin-bottom:6px}
-.pillar-t{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--faint);line-height:1.6}
-.eq-conclusion{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--aged);text-align:center;line-height:1.8;border-top:1px solid rgba(255,255,255,.05);padding-top:32px}
-
-/* OBJECTION */
-.objection{padding:100px 24px;background:#110e0a;border-top:1px solid rgba(139,58,42,.2)}
-.objection-inner{max-width:840px;margin:0 auto}
-.obj-box{border:1px solid rgba(139,58,42,.4);border-left:4px solid var(--rust-l);padding:40px 44px;margin-top:48px}
-.obj-heading{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,26px);font-weight:700;color:var(--paper);margin-bottom:20px;line-height:1.2}
-.obj-body{font-size:15px;line-height:1.95;color:var(--aged)}
-.obj-body p+p{margin-top:16px}
+/* CHAPTER BLOCKS */
+.chapter-block{border-bottom:1px solid rgba(255,255,255,.05);margin-bottom:0}
+.chapter-block:first-of-type{border-top:1px solid rgba(255,255,255,.05)}
+.chapter-header{display:flex;justify-content:space-between;align-items:center;padding:28px 0;cursor:pointer}
+.chapter-header:hover .sample-title{color:var(--gold)}
+.ch-toggle{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);flex-shrink:0;padding-left:24px;transition:opacity .2s}
+.chapter-body{padding:0 0 36px;display:flex;flex-direction:column;gap:20px;font-size:15px;line-height:1.95;color:var(--aged)}
+.chapter-body p{margin:0}
+.chapter-body em{font-style:italic;color:var(--paper)}
+.topics{padding:100px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.03)}
+.topics-inner{max-width:840px;margin:0 auto}
+.topics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(255,255,255,.04)}
+.topic-box{background:var(--ink);padding:32px 28px;transition:background .25s}
+.topic-box:hover{background:#100d09}
+.topic-cat{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.topic-title{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--paper);margin-bottom:12px;line-height:1.25}
+.topic-desc{font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.75;color:var(--faint)}
 
 /* CLAIMS */
-.claims{padding:100px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.03)}
+.claims{padding:100px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03)}
 .claims-inner{max-width:840px;margin:0 auto}
 .claims-intro{font-size:15px;line-height:1.9;color:var(--aged);max-width:680px;margin-bottom:48px}
 .claims-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(255,255,255,.04)}
-.claim{background:var(--ink);padding:24px 28px;display:flex;gap:20px;align-items:flex-start}
+.claim{background:var(--deep);padding:24px 28px;display:flex;gap:20px;align-items:flex-start}
 .claim-num{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:rgba(201,168,76,.35);line-height:1;flex-shrink:0;width:32px}
 .claim-text{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--faint);line-height:1.7}
 
-/* DEBATE */
-.debate{padding:100px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03)}
-.debate-inner{max-width:760px;margin:0 auto;text-align:center}
-.debate-h{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,46px);font-weight:700;color:var(--paper);line-height:1.15;margin-bottom:24px}
-.debate-body{font-size:15px;line-height:1.9;color:var(--aged);margin-bottom:40px}
-.debate-prompt{background:#0f0c08;border:1px solid rgba(201,168,76,.15);border-left:3px solid var(--gold);padding:28px 32px;text-align:left;margin-bottom:32px;font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--aged);line-height:1.75}
-.debate-cta{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.3);padding-bottom:2px;transition:color .2s,border-color .2s}
-.debate-cta:hover{color:var(--paper);border-color:var(--paper)}
+/* ASSESSMENT LINK */
+.assessment{padding:80px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.03);text-align:center}
+.assessment-inner{max-width:600px;margin:0 auto}
+.assessment h3{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,34px);font-weight:700;color:var(--paper);line-height:1.2;margin-bottom:16px}
+.assessment p{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.8;color:var(--aged);margin-bottom:36px}
+.assessment-link{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.4);padding-bottom:3px;transition:color .2s,border-color .2s}
+.assessment-link:hover{color:var(--paper);border-color:rgba(255,255,255,.4)}
 
 /* REVIEWS */
-.reviews{padding:72px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.03);text-align:center}
+.reviews{padding:72px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03);text-align:center}
 .reviews h3{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;color:var(--muted);margin-bottom:12px}
 .reviews p{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(107,96,82,.55);font-style:italic;letter-spacing:.05em}
 
 /* ABOUT */
-.about{padding:100px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03)}
+.about{padding:100px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.03)}
 .about-inner{max-width:840px;margin:0 auto;display:grid;grid-template-columns:1fr 260px;gap:72px;align-items:start}
 .about-body{font-size:15px;line-height:1.95;color:var(--aged)}
 .about-body p+p{margin-top:20px}
@@ -122,7 +118,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .contact{padding:100px 24px;background:#140c08;border-top:1px solid rgba(139,58,42,.3);text-align:center}
 .contact-inner{max-width:580px;margin:0 auto}
 .contact h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:700;color:var(--paper);margin-bottom:20px;line-height:1.2}
-.contact>div>p{font-size:15px;line-height:1.85;color:var(--aged);margin-bottom:40px}
+.contact-p{font-size:15px;line-height:1.85;color:var(--aged);margin-bottom:40px}
 .contact-btn{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;background:var(--rust-l);color:var(--paper);padding:18px 44px;text-decoration:none;transition:background .2s}
 .contact-btn:hover{background:var(--rust)}
 .contact-footer{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;color:var(--muted);margin-top:28px}
@@ -131,13 +127,40 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .footprints{padding:56px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.04);text-align:center}
 .footprints p{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(107,96,82,.45);letter-spacing:.05em;line-height:1.8;max-width:600px;margin:0 auto}
 
+/* CHAT BOT */
+.chatbot{padding:100px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03)}
+.chatbot-inner{max-width:760px;margin:0 auto}
+.chatbot-intro{font-size:15px;line-height:1.9;color:var(--aged);max-width:640px;margin-bottom:48px}
+.chat-shell{background:#0a0806;border:1px solid rgba(201,168,76,.15);display:flex;flex-direction:column;height:520px}
+.chat-header{padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:12px}
+.chat-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.7}
+.chat-header-text{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.chat-messages{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:16px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.08) transparent}
+.chat-messages::-webkit-scrollbar{width:4px}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
+.msg{max-width:82%;display:flex;flex-direction:column;gap:4px}
+.msg.user{align-self:flex-end;align-items:flex-end}
+.msg.bot{align-self:flex-start;align-items:flex-start}
+.msg-bubble{padding:14px 18px;font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.75;color:var(--aged)}
+.msg.user .msg-bubble{background:rgba(139,58,42,.25);border:1px solid rgba(139,58,42,.3)}
+.msg.bot .msg-bubble{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.12)}
+.msg-bubble.typing{color:var(--muted);font-style:italic}
+.chat-input-row{border-top:1px solid rgba(255,255,255,.05);display:flex}
+.chat-input{flex:1;background:transparent;border:none;outline:none;padding:18px 20px;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--paper);caret-color:var(--gold)}
+.chat-input::placeholder{color:rgba(107,96,82,.5)}
+.chat-send{background:none;border:none;border-left:1px solid rgba(255,255,255,.05);padding:0 24px;color:var(--gold);cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:background .2s}
+.chat-send:hover{background:rgba(201,168,76,.07)}
+.chat-send:disabled{opacity:.35;cursor:default}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.suggestion{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--faint);border:1px solid rgba(255,255,255,.08);padding:8px 14px;cursor:pointer;background:none;transition:border-color .2s,color .2s;text-align:left;line-height:1.4}
+.suggestion:hover{border-color:rgba(201,168,76,.4);color:var(--gold)}
+
 @media(max-width:720px){
   .book-inner,.about-inner{grid-template-columns:1fr;gap:48px}
-  .samples-grid,.eq-pillars,.claims-grid{grid-template-columns:1fr}
+  .samples-grid,.topics-grid,.claims-grid{grid-template-columns:1fr}
   .hero-stats{gap:28px}
   .stat-div{display:none}
-  .eq-card{padding:32px 24px}
-  .obj-box{padding:28px 20px}
+  .chat-shell{height:440px}
 }
 </style>
 </head>
@@ -174,7 +197,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <span class="endorse-tag">Endorsement &nbsp;&middot;&nbsp; Dr. James Tour &nbsp;&middot;&nbsp; Rice University</span>
     <p class="endorse-quote">It is well done. It encouraged me greatly. Indeed it reminds me why I keep doing these calls.</p>
     <p class="endorse-name">Dr. James Tour</p>
-    <p class="endorse-cred">T.T. and W.F. Chao Professor of Chemistry &middot; Rice University<br>Among the most cited synthetic chemists in the world</p>
+    <p class="endorse-cred">T.T. and W.F. Chao Professor of Chemistry &middot; Rice University<br>Among the most cited synthetic chemists in the world<br><em style="font-size:12px;opacity:.65">Written after reading an early 20,000-word manuscript</em></p>
   </div>
 </section>
 
@@ -206,78 +229,131 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <section class="samples">
   <div class="samples-inner">
     <span class="label">From the Manuscript</span>
-    <h2 class="section-title">Three Chapters</h2>
-    <p class="section-sub">The beginning. The evidence. The life.</p>
-    <div class="samples-grid">
-      <div class="sample-card">
-        <p class="sample-ch">Prologue</p>
-        <p class="sample-title">The Backyard</p>
-        <p class="sample-excerpt">"In 1986, Halley's Comet returned to the inner solar system for the first time in seventy-six years. I was four years old. I did not know any of that. What I knew was that it was nighttime, and I was outside, and my whole family was with me. The sense that something was happening that was bigger than me, bigger than our yard, bigger than anything I had a word for."</p>
+    <h2 class="section-title">Read Three Chapters</h2>
+    <p class="section-sub" style="margin-bottom:48px">The beginning. The evidence. The moment everything broke.</p>
+
+    <!-- CHAPTER 1: PROLOGUE -->
+    <div class="chapter-block">
+      <div class="chapter-header" onclick="toggleChapter('ch1')">
+        <div>
+          <p class="sample-ch">Prologue</p>
+          <p class="sample-title">The Backyard</p>
+        </div>
+        <span class="ch-toggle" id="ch1-arrow">Read &darr;</span>
       </div>
-      <div class="sample-card">
-        <p class="sample-ch">The Deeper Science</p>
-        <p class="sample-title">The Soundboard</p>
-        <p class="sample-excerpt">"Imagine a soundboard with two hundred dials. Each dial controls one physical constant of the universe — the gravitational constant, the mass of the electron, the cosmological constant. Every dial is set. The question is not whether they are set. The question is who set them, and what happens if any of them move."</p>
-      </div>
-      <div class="sample-card">
-        <p class="sample-ch">Chapter 17</p>
-        <p class="sample-title">Love One Another</p>
-        <p class="sample-excerpt">"Every Sunday morning I cook breakfast for people in recovery. Eggs, tater tots — which are definitely a lunch food, but nobody complains. Christ said love one another. He did not say love one another when it is convenient. He said it. Full stop. These people are worth the trouble. I know, because I was one of them."</p>
+      <div class="chapter-body" id="ch1" style="display:none">
+        <p>In 1986, Halley's Comet returned to the inner solar system for the first time in seventy-six years. It had been seen by the Babylonians, recorded in the Bayeux Tapestry, watched by Mark Twain on the night he was born and the night he died. It had been circling the sun since before anyone thought to write anything down. It was visible from Earth because the universe it traveled through was ordered to a precision that staggers the imagination — a precision I would not learn about for another twenty years, but that was already holding every atom in place while a four-year-old looked up.</p>
+        <p>I was four years old. I did not know any of that. What I knew was that it was nighttime, and I was outside, and my whole family was with me. We were standing in the backyard of our house in Grand Prairie, Texas, looking south toward the horizon. Someone pointed, and I looked where they pointed, and I saw — something. A smudge. A blur. A faint mark on the sky that the adults around me seemed to think mattered. I have almost no memories from that age. But I have this one. Not the comet itself — I barely registered what it was. What I remember is the feeling. The night air. The adults quiet for once, all looking at the same piece of sky. The sense that something was happening that was bigger than me, bigger than our yard, bigger than anything I had a word for.</p>
+        <p>I was conscious. I did not have that word yet, but that is what I was. A small, breathing, aware thing, standing on a rock hurtling through space at sixty-seven thousand miles an hour, watching a chunk of ice that had been falling around the same star since before Rome or Egypt or language itself. And I felt it. Not understood it. Felt it. The weight of something vast and ancient, pressing against the edges of a four-year-old's awareness.</p>
+        <p>I felt it because I was built to feel it.</p>
+        <p>I did not know that yet. It would take me a lifetime to understand what that feeling was. A lifetime of contemplation, of philosophy turning over inside my head, of conversations with people over a cigarette, of quiet nights lying still with my eyes wide open staring straight up — deep and thankful and serene, listening for voices from the dark abyss staring back at me.</p>
+        <p>Nietzsche said that if you gaze long into an abyss, the abyss gazes also into you. He meant it as a warning. I lived it as a hope. For years I stood at the edge of that darkness, staring in, wishing something was staring back. Hoping. But hopeless.</p>
+        <p>Recognition happens slowly over years, like seeing the faint outline of barely a shape in the darkness, not knowing what it is until the light begins to illuminate it — slightly more, only ever slightly more, revealing itself at certain pivotal, paradigm-shifting points. I wanted to know what it was. Not with the vocabulary I would have later — not cosmology, not consciousness, not God — but with the wordless, wide-open want of a child who has just been shown that the universe is enormous and has not yet been told it is empty. Every step I took toward it was just the act of remembering what I already knew was there in the darkness, just beyond sight.</p>
+        <p>This is the story of those pivotal lessons. And how I found the words to describe what was there all along.</p>
       </div>
     </div>
+
+    <!-- CHAPTER 2: THE CALL -->
+    <div class="chapter-block">
+      <div class="chapter-header" onclick="toggleChapter('ch2')">
+        <div>
+          <p class="sample-ch">Chapter 9</p>
+          <p class="sample-title">The Call</p>
+        </div>
+        <span class="ch-toggle" id="ch2-arrow">Read &darr;</span>
+      </div>
+      <div class="chapter-body" id="ch2" style="display:none">
+        <p>Dr. James Tour. Rice University. One of the most cited chemists in the world — over eight hundred publications, over a hundred and thirty patents. A man who built molecules for a living, who understood the chemistry of life at a level I never would and never pretended to. And in the videos I watched, he did something I had never seen a scientist do: he dismantled abiogenesis — the claim that life arose from non-living chemistry — without saying a single word about God. He did not preach. He did not wave a Bible. He did not appeal to faith or feelings or anything I had learned to distrust. He stood in front of audiences and said: show me the mechanism. Show me how you get from simple molecules to a living cell. Show me the pathway. And when they could not — when no one could, because no one has — he said so, plainly, the way a scientist says so when the data does not support the conclusion.</p>
+        <p>Then I saw the video where he said: if you do not believe this, text me. It shocked me. Not the content — the invitation. Because suddenly the top guy, the one I respected precisely because he was not a sensationalist, was making a claim I did not expect. He was not just presenting evidence. He was offering himself. Personally. To strangers. To anyone watching. And I wanted to know what he was selling. Or prove that he would not respond.</p>
+        <p>I emailed him. I did not email him looking for God. I emailed him looking for a crack in his credibility. I wanted to catch him not meaning it.</p>
+        <p>He called me back.</p>
+        <p>Not an assistant. Not a form letter. James Tour, on the phone, talking to me. And the first thing he did was tell me his story. November 7, 1977. Room 1812, Barnes Dormitory. He was a young man with an addiction that had consumed him. He had met a football player in the laundry room. That football player invited him to a Bible study. And in room 1812, Tour gave his life to Christ. He told me this — all of it — without flinching. A man with eight hundred publications and the respect of the global chemistry community told a stranger about his darkest years and the night Jesus showed up in a dormitory room. Because he was showing me something: this religion is for sinners. Not the cleaned-up. Not the respectable. Christ died for the ungodly, Tour said.</p>
+        <p>Then he asked me about William. He used my son's name. He said: what would you do, Jon, if William was in the yard and a big dog came running at him? I said I would put myself between William and the dog. "That is what God did," Tour said. "He demonstrates his love toward us. While we were still sinners, Christ died for us."</p>
+        <p>Then he walked me through the evidence I had been avoiding for thirteen years. Twelve extrabiblical sources for Jesus of Nazareth. The crucifixion performed by Roman soldiers — professionals who knew how to kill a man and whose careers depended on doing it correctly. Thomas, who would not believe until his hand was in the wound — a skeptic, like me. Five hundred witnesses to the resurrection, reported by Paul within years of the event, when most of those witnesses were still alive to be questioned.</p>
+        <p>And then Tour told me about Tacitus, and something inside me broke.</p>
+        <p>Tacitus was a Roman senator and historian — not a Christian, not a sympathizer, not a man with any reason to exaggerate. He was writing the official history of Rome. And he recorded that Nero, after the great fire of 64 AD, blamed the Christians and subjected them to what Tacitus called the most exquisite tortures. He described a vast multitude of people who were arrested, convicted, and executed. And here is what hit me, sitting on that phone with Tour: some of those people were related to each other. Families. Parents and children. Brothers and sisters. Which means some of them watched their relatives tortured to death in front of them — covered in animal skins and torn apart by dogs, crucified, set on fire as human torches to light Nero's gardens — and then faced the same choice themselves.</p>
+        <p>All they had to do — the only thing required to stop the torture, to save themselves, to save their children — was say they had not seen Jesus alive after his death. Just say it. Say you made it up. And not only would the torture stop — they would have been rewarded. Not one of them did.</p>
+        <p>People do not die for lies they know are lies. That is not a theological claim. That is a claim about human nature, and it is one of the most reliable observations in the history of our species.</p>
+        <p>"I have these conversations regularly," Tour told me. "Most of them are educated people. And I watch them go from not believing in the physical resurrection of Jesus Christ to believing in the physical resurrection of Jesus Christ in a thirty-minute conversation. How do you think that happens?"</p>
+        <p>I tried to answer. He said: "I will tell you how I think it happens. The truth of the resurrection of Jesus Christ has been written on their heart already. It is already there. All I am asking them to do is to confess to the truth that is already there." Then he said: "And you know how I know the truth is already on your heart, Jon?" "Because I emailed you," I said.</p>
+        <p>"That's right."</p>
+        <p>I broke. The ever-receding bubble of my own doubt — the thing I had carried and protected and reinforced for over twenty years — popped. And truth and justice and love and a feeling that can never be conveyed in any language by anyone rushed into the void to fill it. With an impact that still rings like a bell.</p>
+        <p>He asked me to pray with him. It was December 18, 2021. I had fought this for over twenty years. I had turned every rock I could find, and under every single one of them the same face had been waiting, and I had spent two decades telling myself it was not there.</p>
+        <p>Tour prayed. And I repeated after him. <em>Lord Jesus. Forgive me because I am a sinner. Thank you for dying for my sins. I believe Jesus is Lord. And I believe that he has risen from the dead. Fill me with your Holy Spirit. And use me for your glory. In the name of Jesus. Amen.</em></p>
+        <p>"Jon, I want you to write down this date," Tour said. "December 18th."</p>
+        <p>I did not need to write it down. I will never forget it.</p>
+      </div>
+    </div>
+
+    <!-- CHAPTER 3: LOVE ONE ANOTHER -->
+    <div class="chapter-block">
+      <div class="chapter-header" onclick="toggleChapter('ch3')">
+        <div>
+          <p class="sample-ch">Chapter 17</p>
+          <p class="sample-title">Love One Another</p>
+        </div>
+        <span class="ch-toggle" id="ch3-arrow">Read &darr;</span>
+      </div>
+      <div class="chapter-body" id="ch3" style="display:none">
+        <p>Almost every Sunday morning for the last four or five years, I have woken up early and driven to Second Chance Baptist Church in Farmers Branch to cook breakfast. I meet my pastor, Jon Myers, at eight o'clock. Charlie is already there, or close to it. While Jon goes out to collect the homeless — driving around, finding them, bringing them back — Charlie and I cook. Sausage patties. The best scrambled eggs you have ever tasted in your life. And tater tots, which me and Charlie have an ongoing argument about. My contention is that tater tots are a lunch food. He disagrees. Neither of us is going to budge on this, and the homeless do not care either way because they are hungry and the food is hot.</p>
+        <p>That is it. That is what love one another looks like on a Sunday morning. There is no exhibition of who I am going on there. I do not stand up and tell my story. I do not hand out copies of my testimony. I do not make sure anyone knows about the book I am writing or the rocks I have turned or the call with Tour or the filing cabinet in my head. I show up. I cook breakfast. I serve it to people who are broken in ways that most normal people cannot handle — people who cannot take care of themselves, who have problems that do not have clean solutions, who are yearning for something different and do not know how to get there. I see them every week. Day after day the same brokenness. The same hunger. The same quiet desperation of people who have been told by the world that they do not matter, and who have started to believe it.</p>
+        <p>And I see myself in them. Not the version of me that turned rocks over and found God. The other version. The version that sat at a computer at three in the morning with nothing left to write but the truth. The version that got rejected from rehab because I did not spend enough on drugs. The version that had every friend and family member run off and was standing in the wreckage of a life that looked, from the outside, exactly like theirs.</p>
+        <p>That is why I go.</p>
+        <p>Not because I am a good person. I am not a particularly good person. I go because it is a way to get outside of myself. It is a way to serve. And it is a way to remind myself, every single Sunday, of what could have been. Of what should have been, by every reasonable measure, if God had not intervened in the specific, relentless, rock-by-rock way that he did.</p>
+        <p>Christ said love one another. He did not say love one another when it is convenient, or love one another when you have the energy, or love one another when the people you are loving are clean and polite and grateful. He said love one another. Full stop. And the people at that breakfast table on Sunday morning are the ones who need it most, because they are the ones the rest of the world has decided are not worth the trouble. They are worth the trouble. I know, because I was one of them. And someone cooked breakfast for me too, once, when I did not deserve it and could not repay it and did not even know enough to say thank you. Love one another.</p>
+        <p>Not as a commandment to be obeyed. As a design to be fulfilled. I was built for this — for the eggs, for the tater tots that are definitely a lunch food, for the broken people at a folding table on a Sunday morning in Farmers Branch. And if I forget that, all I have to do is show up next week, and the reminder is sitting right there, eating breakfast, looking at me with the same eyes I used to see in the mirror.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- THE EQUATION -->
-<section class="equation">
-  <div class="equation-inner">
-    <span class="label">The Argument</span>
-    <h2 class="section-title">The Equation</h2>
-    <p class="section-sub">If the equation is correct, it should predict. Here is what it predicted.</p>
-    <div class="eq-card">
-      <p class="eq-formula">S = f(R)</p>
-      <p class="eq-def">Signal equals a function of Reality &nbsp;&middot;&nbsp; The structure of reality, correctly perceived, produces the signal of God</p>
-      <div class="eq-pillars">
-        <div class="pillar">
-          <p class="pillar-n">01</p>
-          <p class="pillar-t">A universe fine-tuned to 1 part in 10¹²⁰ — the worst theoretical prediction in the history of physics</p>
-        </div>
-        <div class="pillar">
-          <p class="pillar-n">02</p>
-          <p class="pillar-t">Biological machines that cannot have assembled themselves — the irreducibly complex flagellum</p>
-        </div>
-        <div class="pillar">
-          <p class="pillar-n">03</p>
-          <p class="pillar-t">A historical execution attested by hostile Roman and Jewish sources who had every reason to deny it</p>
-        </div>
-        <div class="pillar">
-          <p class="pillar-n">04</p>
-          <p class="pillar-t">A resurrection account with 500 named witnesses, a converted persecutor, and a skeptical brother</p>
-        </div>
-        <div class="pillar">
-          <p class="pillar-n">05</p>
-          <p class="pillar-t">An empty tomb that even the opponents of early Christianity never disputed — they only argued about where the body went</p>
-        </div>
-        <div class="pillar">
-          <p class="pillar-n">06</p>
-          <p class="pillar-t">Every major world religion reaching toward the same signal — the almost is the evidence. Islam matches five of six pillars. One forensic event is the divergence.</p>
-        </div>
+<!-- TOPIC BOXES -->
+<section class="topics">
+  <div class="topics-inner">
+    <span class="label">What This Book Addresses</span>
+    <h2 class="section-title">The Mysteries. The Evidence. The Answers.</h2>
+    <p class="section-sub" style="margin-bottom:48px">These are unsolved problems in mainstream science. This book examines each one — honestly, with the primary sources — and follows the evidence wherever it goes.</p>
+    <div class="topics-grid">
+      <div class="topic-box">
+        <p class="topic-cat">Physics</p>
+        <p class="topic-title">Why does anything exist at all?</p>
+        <p class="topic-desc">The cosmological constant — the energy density of empty space — is tuned to 1 part in 10¹²⁰. Quantum field theory predicts a value 10¹²⁰ times larger. This is the worst discrepancy between theory and observation in the history of physics. Not cosmology. All of physics. The standard model has no explanation for why the dial is set where it is.</p>
       </div>
-      <p class="eq-conclusion">A correct equation works. It is not surprising anymore.<br>Islam reaches toward the same God — the signal was real. The transmission diverged at one forensic event: an empty tomb on a Tuesday in Jerusalem, documented by people who were trying to disprove it.</p>
-    </div>
-  </div>
-</section>
-
-<!-- OBJECTION -->
-<section class="objection">
-  <div class="objection-inner">
-    <span class="label">The Hardest Question</span>
-    <div class="obj-box">
-      <h3 class="obj-heading">OBJECTION: If God exists and is good, why does evil exist?</h3>
-      <div class="obj-body">
-        <p>This is the rock nobody wants to turn. It is the one I avoided the longest. It is also the one where the equation is most vulnerable — and where, when I finally turned it, I found the deepest support for everything else.</p>
-        <p>The argument assumes that evil is a thing God made. It is not. Evil is the absence of alignment with the structure of reality — the same way cold is not a thing, but the absence of heat. A God who created beings with genuine will necessarily created beings capable of choosing against that structure. That is not a design flaw. That is the only design that produces genuine love rather than programmed compliance.</p>
-        <p>The cross is not God compensating for a mistake. It is God absorbing the cost of the only kind of love worth having. Creation was always the sacrifice. The cross made it visible.</p>
+      <div class="topic-box">
+        <p class="topic-cat">Biology</p>
+        <p class="topic-title">How did the first living cell assemble itself?</p>
+        <p class="topic-desc">No naturalistic process has produced a self-replicating molecule from raw chemistry. The probability of the simplest functional protein fold arising by chance is 1 in 10⁷⁷ — per Douglas Axe's peer-reviewed work in the Journal of Molecular Biology. Dr. James Tour, one of the world's leading synthetic chemists, says publicly: no one knows how life began. No one.</p>
+      </div>
+      <div class="topic-box">
+        <p class="topic-cat">Biology</p>
+        <p class="topic-title">How did irreducibly complex machines evolve?</p>
+        <p class="topic-desc">The bacterial flagellum is a rotary motor running at 17,000 RPM with ~40 interdependent protein components. Remove any single component and the system fails entirely — it does not function at a reduced level, it does not function at all. Evolution requires a functional intermediate. Michael Behe documented in Darwin's Black Box that no such pathway has been identified.</p>
+      </div>
+      <div class="topic-box">
+        <p class="topic-cat">Paleontology</p>
+        <p class="topic-title">Why did complex life appear without ancestors?</p>
+        <p class="topic-desc">The Cambrian explosion: in a geologically brief window, nearly every major animal body plan appears in the fossil record fully formed, with no precursor fossils. Darwin called this a serious problem for his theory. One hundred and fifty years later it remains one. Stephen Meyer's Darwin's Doubt is the most thorough treatment of why the information content required cannot be accounted for by known mechanisms.</p>
+      </div>
+      <div class="topic-box">
+        <p class="topic-cat">Geology</p>
+        <p class="topic-title">How is soft tissue surviving in dinosaur bone?</p>
+        <p class="topic-desc">In 2005, Mary Schweitzer published in Science the recovery of flexible soft tissue, blood vessels, and intact proteins from a T. rex femur supposedly 68 million years old. Proteins degrade. The chemistry is well understood. At known decay rates, no organic material survives past a few hundred thousand years. The standard model has no mechanism to explain this. The paper caused a scientific scandal.</p>
+      </div>
+      <div class="topic-box">
+        <p class="topic-cat">Radiometry</p>
+        <p class="topic-title">Why is carbon-14 in specimens that shouldn't have any?</p>
+        <p class="topic-desc">Carbon-14 has a half-life of 5,730 years. After 100,000 years, none should remain detectable. It has been found in coal, diamonds, and dinosaur bone — specimens assigned ages of tens to hundreds of millions of years. The RATE project documented this systematically. The response from mainstream science has been to question the measurement, not to explain the mechanism.</p>
+      </div>
+      <div class="topic-box">
+        <p class="topic-cat">History</p>
+        <p class="topic-title">Why did a vast multitude die rather than recant?</p>
+        <p class="topic-desc">Tacitus — hostile Roman historian, no reason to exaggerate — recorded a vast multitude of Christians executed under Nero who could have stopped the torture with a single sentence of denial. Families watched each other die. Not one recanted. People die for things they believe are true. No one dies for something they personally witnessed and know to be false. That is not theology. That is human nature.</p>
+      </div>
+      <div class="topic-box">
+        <p class="topic-cat">Philosophy</p>
+        <p class="topic-title">Is atheism the absence of faith — or a different faith?</p>
+        <p class="topic-desc">Every gap in the naturalistic account requires the belief that an explanation will eventually be found. Abiogenesis: unsolved — but it will be solved. The Cambrian explosion: unexplained — but it will be explained. This is not a conclusion drawn from evidence. It is a prior commitment. The author spent twenty years holding it. He named it: the doubt of the gaps. It requires more faith than the alternative.</p>
       </div>
     </div>
   </div>
@@ -288,7 +364,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <div class="claims-inner">
     <span class="label">28 Verifiable Claims</span>
     <h2 class="section-title">Every Claim Has a Receipt</h2>
-    <p class="claims-intro">The book ends with a verification list. Twenty-eight specific claims, each with the search term and the primary source. The intent is not to ask you to trust the author. The intent is to make every claim checkable in ten minutes. Turn the rocks yourself.</p>
+    <p class="claims-intro">The book ends with a verification list. Twenty-eight specific claims, each with the search term and the primary source. The intent is not to ask you to trust the author. Turn the rocks yourself.</p>
     <div class="claims-grid">
       <div class="claim"><span class="claim-num">01</span><p class="claim-text">Bacterial flagellum: ~40 irreducibly complex protein components. Behe, <em>Darwin's Black Box</em></p></div>
       <div class="claim"><span class="claim-num">02</span><p class="claim-text">Cosmological constant tuned to 1 part in 10¹²⁰ — the worst theoretical prediction in physics history</p></div>
@@ -303,18 +379,16 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   </div>
 </section>
 
-<!-- OPEN DEBATE -->
-<section class="debate">
-  <div class="debate-inner">
-    <span class="label" style="text-align:center">Independent Verification</span>
-    <h2 class="debate-h">Don't take my word for it.<br>Take the AI's.</h2>
-    <p class="debate-body">Open any major AI — ChatGPT, Claude, Gemini. Give it the manuscript. Ask it to rank this book against the Christian apologetics canon: Lewis, Strobel, Keller, Chesterton, Collins. Ask it to be ruthless. I've done this. Repeatedly. Across multiple models. The ranking holds. If it doesn't hold for you — I want to know.</p>
-    <div class="debate-prompt">You have been given a manuscript. Rank it against the Christian apologetics canon — C.S. Lewis (Mere Christianity), Lee Strobel (The Case for Christ), Timothy Keller (The Reason for God), G.K. Chesterton (Orthodoxy), Francis Collins (The Language of God) — on five dimensions: originality, argument quality, emotional resonance, accessibility to skeptics, and marketability to the stated target audience. Do not adjust your assessment based on who wrote it. Be specific. Give a final ranking.</div>
-    <a href="mailto:jon@stephensadvanced.com?subject=AI Ranking Result" class="debate-cta">Send me your result &rarr;</a>
+<!-- ASSESSMENT LINK -->
+<section class="assessment">
+  <div class="assessment-inner">
+    <h3>Independent Assessment</h3>
+    <p>The manuscript was submitted for ranking against the full Christian apologetics canon — Lewis, Strobel, Keller, Chesterton, Collins. Read where it placed and why.</p>
+    <a href="assessment.html" class="assessment-link">View the AI Assessment &rarr;</a>
   </div>
 </section>
 
-<!-- REVIEWS COMING SOON -->
+<!-- REVIEWS -->
 <section class="reviews">
   <h3>Reviews</h3>
   <p>Coming soon &nbsp;&middot;&nbsp; The manuscript is complete and available upon request</p>
@@ -345,7 +419,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <section class="contact">
   <div class="contact-inner">
     <h2>For Literary Agents &amp; Publishers</h2>
-    <p>The complete manuscript and Dr. Tour's written endorsement are available immediately upon request.</p>
+    <p class="contact-p">The complete manuscript and Dr. Tour's written endorsement are available immediately upon request.</p>
     <a href="mailto:jon@stephensadvanced.com" class="contact-btn">Request the Manuscript</a>
     <p class="contact-footer">Jonathan Stephens &nbsp;&middot;&nbsp; jon@stephensadvanced.com &nbsp;&middot;&nbsp; Irving, Texas</p>
   </div>
@@ -356,5 +430,70 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <p>These are the footprints. Every one of them was already there before I started looking.<br>I did not leave them. I only followed where they led.</p>
 </section>
 
+<script>
+function toggleChapter(id) {
+  const body = document.getElementById(id);
+  const arrow = document.getElementById(id + '-arrow');
+  const open = body.style.display !== 'none';
+  body.style.display = open ? 'none' : 'flex';
+  arrow.innerHTML = open ? 'Read &darr;' : 'Close &uarr;';
+}
+
+const messages = [];
+
+function addMessage(role, text) {
+  const box = document.getElementById('chatMessages');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg ' + role;
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.textContent = text;
+  wrap.appendChild(bubble);
+  box.appendChild(wrap);
+  box.scrollTop = box.scrollHeight;
+  return bubble;
+}
+
+function setLoading(on) {
+  document.getElementById('chatSend').disabled = on;
+  document.getElementById('chatInput').disabled = on;
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  addMessage('user', text);
+  messages.push({ role: 'user', content: text });
+  setLoading(true);
+
+  const typingBubble = addMessage('bot', '');
+  typingBubble.classList.add('typing');
+  typingBubble.textContent = 'Turning the rock…';
+
+  try {
+    const res = await fetch('/api/challenge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages })
+    });
+    const data = await res.json();
+    const reply = data.response || data.reply || data.content?.[0]?.text || data.message || 'No response.';
+    typingBubble.classList.remove('typing');
+    typingBubble.textContent = reply;
+    messages.push({ role: 'assistant', content: reply });
+  } catch (e) {
+    typingBubble.classList.remove('typing');
+    typingBubble.textContent = 'Something went wrong. Try again.';
+  }
+  setLoading(false);
+}
+
+function sendSuggestion(btn) {
+  document.getElementById('chatInput').value = btn.textContent;
+  sendMessage();
+}
+</script>
 </body>
 </html>
