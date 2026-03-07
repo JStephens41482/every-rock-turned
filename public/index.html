@@ -72,7 +72,7 @@
     .score-note{font-size:0.8rem;color:var(--faint);line-height:1.6;margin-top:0.75rem;font-style:italic}
 
     /* SLIDESHOW */
-    .slideshow{max-width:720px;margin:0 auto;position:relative;height:440px;border-radius:12px;border:1px solid #1a1918;background:rgba(255,255,255,0.015);overflow:hidden}
+    .slideshow{max-width:720px;margin:0 auto;position:relative;height:300px;border-radius:12px;border:1px solid #1a1918;background:rgba(255,255,255,0.015);overflow:hidden}
     .slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;opacity:0;transform:translateX(20px);transition:all 0.7s ease;pointer-events:none}
     .slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
     .slide-img{width:200px;height:140px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--border);border-radius:6px;background:rgba(255,255,255,0.03);margin-bottom:1.5rem;overflow:hidden}
@@ -146,7 +146,8 @@
     <p class="hero-byline">Jonathan Stephens</p>
     <h1 class="hero-title">UNDER EVERY<br><span>ROCK TURNED</span></h1>
     <div class="hero-status">Completed Manuscript · 55,000 Words · Available for Publication</div>
-    <p class="hero-sub">A case for Christ through the life of a skeptic. Twenty years of atheism. Every argument examined. Every rock turned. The same face under every one of them.</p>
+    <p class="hero-sub" style="font-style:italic;color:var(--accent);font-size:clamp(1rem,2.5vw,1.2rem);max-width:560px">"And those two deep, ragged gouges in the sand, where you see only one set of footprints? That's where I was dragging you while you were kicking and screaming."</p>
+    <p style="font-size:0.82rem;color:var(--faint);margin-bottom:2.5rem">Twenty years of desperately not wanting to believe this.</p>
     <div>
       <a href="#challenge" class="btn">CHALLENGE THE ARGUMENTS</a>
       <a href="#read" class="btn btn-ghost">READ A CHAPTER</a>
@@ -182,6 +183,19 @@
     <div class="audience-card"><strong>The person looking to prove me wrong.</strong><p>Good. There's a text box at the bottom of this page. Type your best argument. The book will respond. If it cuts, it bleeds.</p></div>
     <div class="audience-card"><strong>The theologian who wants to see the cracks fixed.</strong><p>The origin of evil. The necessity of the cross. Why an omnipotent God cannot sin. These chapters go where most theology won't.</p></div>
     <div class="audience-card"><strong>The person who wants to hear an atheist's heart find God through logic and reason alone.</strong><p>That is exactly what this is. Twenty years of turning rocks. The same face under every one of them.</p></div>
+  </div>
+</section>
+
+<!-- ═══════ WHAT THE BOOK RESOLVES ═══════ -->
+<section>
+  <p class="section-label">Without Ever Opening the Bible</p>
+  <h2 class="section-title">Questions This Book Answers</h2>
+  <p class="section-sub">Loose ends in theology, science, math, and epistemology that the book ties up through logic, evidence, and deduction alone.</p>
+  <div class="audience-grid">
+    <div class="audience-card"><strong>Theology</strong><p>Why an omnipotent God cannot sin. Where evil came from without God creating it. Why the cross was structurally necessary — not Plan B. Why Satan cannot repent. What angels actually are. What "made in His image" means. Why the tree was in the garden. Why suffering exists under a good God. How every major religion points at the same God. Why Islam knows God but gets the crucifixion wrong. How the Tao, the Force, and the Logos are the same thing from different angles.</p></div>
+    <div class="audience-card"><strong>Science</strong><p>Why consciousness eliminates all material designers. Why the multiverse requires more faith than design. Why the cosmological constant problem undermines confidence in the 13.8-billion-year timeline. Why soft tissue in dinosaur bone is a problem. Why C-14 exists in diamonds and coal. How a biblical framework outperformed secular models on planetary magnetic fields. Why irreducible complexity eliminates gradualism for specific systems.</p></div>
+    <div class="audience-card"><strong>Math &amp; Geometry</strong><p>A geometric framework for human life and divine perspective. Why God exists outside all possible dimensions. The 75/25 geometry of good versus evil. Why goodness outweighs evil three-to-one structurally. How all paths converge to a single dimensionless point before creation.</p></div>
+    <div class="audience-card"><strong>Epistemology</strong><p>"Doubt of the gaps" — the inversion of the God of the gaps accusation. Why honest doubt and comfortable doubt are fundamentally different. Why trusting reason at all requires a designer who valued truth. Why this is the only apologetics book that invites falsification.</p></div>
   </div>
 </section>
 
@@ -253,7 +267,7 @@
 <section id="challenge">
   <p class="section-label">The Challenge</p>
   <h2 class="section-title">Challenge the Arguments</h2>
-  <p class="section-sub">This AI has been loaded with the full framework of the book — every argument, every piece of evidence, every logical structure. Enter your objection. It engages directly. If your argument holds, it says so. If it doesn't, it shows why. No spin. No ministry voice.</p>
+  <p class="section-sub">This bot has been trained on the multidimensional, esoteric nature of this book's arguments — arguments that confirm Christianity as the truth without ever opening the Bible — because the author would have immediately had questions he'd want answers to, and arguments to make. Enter your objection. It engages directly. If your argument holds, it says so. If it doesn't, it shows why. No spin. No ministry voice.</p>
   <div class="cbox" id="cbox">
     <textarea id="cinput" rows="5" placeholder="Enter your strongest argument against what's in these pages..."></textarea>
     <button class="cbtn" id="cbtn" onclick="submitC()">CHALLENGE THE ARGUMENTS</button>
@@ -359,7 +373,7 @@ const slides=[
   {t:"A Vast Multitude",s:"Parents watched their children die. All they had to do was say one sentence. Not one of them did. People do not die for lies they know are lies.",img:null,ph:"FIRE"}
 ];
 let cur=0,tmr;
-function renderSlides(){const c=document.getElementById('slideshow');const pv=c.querySelector('.prev'),nx=c.querySelector('.next');slides.forEach((s,i)=>{const d=document.createElement('div');d.className='slide'+(i===0?' active':'');d.id='s'+i;const im=s.img?`<img src="${s.img}" alt="${s.t}">`:`<span class="ph">${s.ph}</span>`;const dots=slides.map((_,di)=>`<div class="sdot${di===i?' active':''}"></div>`).join('');d.innerHTML=`<div class="slide-img">${im}</div><h3>${s.t}</h3><p>${s.s}</p><div class="sdots">${dots}</div>`;c.insertBefore(d,pv);});startT();}
+function renderSlides(){const c=document.getElementById('slideshow');const pv=c.querySelector('.prev'),nx=c.querySelector('.next');slides.forEach((s,i)=>{const d=document.createElement('div');d.className='slide'+(i===0?' active':'');d.id='s'+i;const dots=slides.map((_,di)=>`<div class="sdot${di===i?' active':''}"></div>`).join('');d.innerHTML=`<h3>${s.t}</h3><p>${s.s}</p><div class="sdots">${dots}</div>`;c.insertBefore(d,pv);});startT();}
 function chSlide(dir){const p=cur;cur=(cur+dir+slides.length)%slides.length;updS(p);clearInterval(tmr);startT();}
 function updS(p){document.getElementById('s'+p).className='slide';document.getElementById('s'+cur).className='slide active';}
 function startT(){tmr=setInterval(()=>{const p=cur;cur=(cur+1)%slides.length;updS(p);},5000);}
