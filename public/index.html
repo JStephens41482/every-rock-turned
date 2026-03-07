@@ -1,370 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Under Every Rock Turned — Jonathan Stephens</title>
-  <meta name="description" content="A completed 60,000-word memoir. A case for Christ through the life of a skeptic. Final manuscript ready for publication.">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{--bg:#0f0e0d;--text:#e8e4de;--muted:#9a9590;--dim:#6b6560;--faint:#5a5550;--ghost:#3a3835;--border:#2a2825;--surface:rgba(255,255,255,0.02);--font:'EB Garamond',Georgia,serif;--accent:#c5c0ba}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan Stephens — Under Every Rock Turned</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* NAV */
-    nav{position:fixed;top:0;width:100%;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(15,14,13,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #1a1918}
-    .logo{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim)}
-    .nav-links{display:flex;gap:1.5rem}
-    .nav-links a{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);text-decoration:none;transition:color 0.3s}
-    .nav-links a:hover{color:var(--text)}
-    @media(max-width:700px){.nav-links{gap:0.75rem} .nav-links a{font-size:0.6rem}}
+  :root {
+    --ink: #0e0c09;
+    --paper: #f5f0e8;
+    --aged: #e8dfc8;
+    --rust: #8b3a2a;
+    --rust-light: #b5442f;
+    --gold: #c9a84c;
+    --muted: #6b6357;
+    --faint: #d4ccbb;
+  }
 
-    /* UTILITY */
-    section{padding:5rem 1.5rem;max-width:780px;margin:0 auto}
-    .wide{max-width:900px}
-    .section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--faint);text-align:center;margin-bottom:1rem}
-    .section-title{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:700;text-align:center;margin-bottom:1.5rem}
-    .section-sub{text-align:center;color:#8a8580;max-width:560px;margin:0 auto 2.5rem;font-size:clamp(0.85rem,2vw,1.05rem);line-height:1.7}
-    .rule{width:48px;height:1px;background:var(--border);margin:2.5rem auto}
-    blockquote{font-style:italic;color:var(--accent);line-height:1.7}
+  html { scroll-behavior: smooth; }
 
-    /* HERO */
-    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem;position:relative;max-width:100%}
-    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 40%,rgba(232,228,222,0.03) 0%,transparent 70%);pointer-events:none}
-    .hero-content{position:relative;z-index:1;max-width:720px}
-    .hero-byline{font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim);margin-bottom:2rem}
-    .hero-title{font-size:clamp(2.5rem,8vw,4.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.25rem}
-    .hero-title span{color:var(--muted)}
-    .hero-status{display:inline-block;padding:0.4rem 1.25rem;border:1px solid var(--border);border-radius:4px;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem}
-    .hero-sub{font-size:clamp(1rem,2.5vw,1.15rem);color:#8a8580;max-width:520px;margin:0 auto 2.5rem;line-height:1.7}
-    .btn{display:inline-block;padding:0.8rem 2rem;background:var(--text);color:var(--bg);font-family:var(--font);font-size:0.85rem;letter-spacing:0.12em;text-decoration:none;border-radius:4px;transition:all 0.3s;border:none;cursor:pointer}
-    .btn:hover{opacity:0.9}
-    .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted);margin-left:0.75rem}
-    .btn-ghost:hover{border-color:var(--dim);color:var(--text)}
-    .scroll-hint{position:absolute;bottom:2.5rem;display:flex;flex-direction:column;align-items:center;animation:bounce 2s infinite}
-    .scroll-hint .line{width:1px;height:28px;background:linear-gradient(to bottom,transparent,var(--ghost))}
-    .scroll-hint .dot{width:5px;height:5px;border-radius:50%;background:var(--ghost);margin-top:4px}
-    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    overflow-x: hidden;
+  }
 
-    /* PROSE BLOCKS */
-    .prose{color:var(--accent);line-height:1.85;font-size:clamp(0.92rem,2vw,1.05rem)}
-    .prose p{margin-bottom:1.15rem}
-    .prose strong{color:var(--text)}
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+  }
 
-    /* AUDIENCE CARDS */
-    .audience-grid{display:grid;grid-template-columns:1fr;gap:0.75rem;margin-top:1.5rem}
-    @media(min-width:600px){.audience-grid{grid-template-columns:1fr 1fr}}
-    .audience-card{padding:1.25rem;border:1px solid var(--border);border-radius:8px;background:var(--surface)}
-    .audience-card p{font-size:0.9rem;color:var(--muted);line-height:1.6}
-    .audience-card strong{color:var(--text);font-size:0.95rem;display:block;margin-bottom:0.35rem}
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,58,42,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      var(--ink);
+    text-align: center;
+  }
 
-    /* SAMPLE CHAPTER */
-    .sample-box{border:1px solid var(--border);border-radius:8px;padding:2rem;background:var(--surface);max-height:500px;overflow-y:auto;color:var(--accent);line-height:1.85;font-size:clamp(0.88rem,2vw,1rem)}
-    .sample-box p{margin-bottom:1rem}
+  .hero-rule {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
 
-    /* SCORE TABLES */
-    table.scores{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.82rem}
-    table.scores th{text-align:left;padding:0.6rem 0.75rem;border-bottom:1px solid var(--border);color:var(--dim);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;font-size:0.65rem}
-    table.scores td{padding:0.6rem 0.75rem;border-bottom:1px solid #1a1918;color:var(--muted)}
-    table.scores tr.hi td{color:var(--text);font-weight:600}
-    table.scores td.num{text-align:right;font-weight:600}
-    .score-note{font-size:0.8rem;color:var(--faint);line-height:1.6;margin-top:0.75rem;font-style:italic}
+  .hero-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
 
-    /* SLIDESHOW */
-    .slideshow{max-width:720px;margin:0 auto;position:relative;height:300px;border-radius:12px;border:1px solid #1a1918;background:rgba(255,255,255,0.015);overflow:hidden}
-    .slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;opacity:0;transform:translateX(20px);transition:all 0.7s ease;pointer-events:none}
-    .slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
-    .slide-img{width:200px;height:140px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--border);border-radius:6px;background:rgba(255,255,255,0.03);margin-bottom:1.5rem;overflow:hidden}
-    .slide-img img{max-width:100%;max-height:100%;object-fit:contain}
-    .slide-img .ph{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ghost)}
-    .slide h3{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:700;margin-bottom:0.6rem}
-    .slide p{font-size:clamp(0.82rem,2vw,1rem);color:var(--muted);max-width:520px;line-height:1.7}
-    .sdots{display:flex;gap:5px;margin-top:1.25rem}
-    .sdot{height:2px;border-radius:1px;background:var(--ghost);width:8px;transition:all 0.5s}
-    .sdot.active{width:22px;background:var(--text)}
-    .snav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:rgba(255,255,255,0.05);color:var(--dim);font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:var(--font)}
-    .snav.prev{left:10px}.snav.next{right:10px}
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 88px);
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    margin-bottom: 12px;
+  }
 
-    /* CHALLENGE */
-    .cbox{max-width:640px;margin:0 auto;border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:1.75rem}
-    .cbox textarea{width:100%;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:6px;padding:1rem;color:var(--text);font-family:var(--font);font-size:0.95rem;resize:none;line-height:1.6}
-    .cbox textarea:focus{outline:none;border-color:var(--dim)}
-    .cbox textarea::placeholder{color:var(--faint)}
-    .cbtn{margin-top:1rem;padding:0.7rem 1.75rem;border-radius:4px;font-family:var(--font);font-size:0.85rem;letter-spacing:0.05em;border:none;cursor:default;transition:all 0.3s;background:var(--border);color:var(--faint)}
-    .cbtn.ready{background:var(--text);color:var(--bg);cursor:pointer}
-    .cresp{font-size:0.92rem;color:var(--accent);line-height:1.8;white-space:pre-wrap}
-    .cload{display:flex;flex-direction:column;align-items:center;padding:2.5rem 0}
-    .ldots{display:flex;gap:6px;margin-bottom:1rem}
-    .ldots span{width:7px;height:7px;border-radius:50%;background:var(--text);animation:pls 1.4s infinite ease-in-out}
-    .ldots span:nth-child(2){animation-delay:0.2s}.ldots span:nth-child(3){animation-delay:0.4s}
-    @keyframes pls{0%,80%,100%{opacity:0.3;transform:scale(0.8)}40%{opacity:1;transform:scale(1)}}
-    .cagain{margin-top:1.25rem;padding:0.5rem 1.25rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font);font-size:0.8rem;cursor:pointer}
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(14px, 2.5vw, 20px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 48px;
+  }
 
-    /* TABS */
-    .tab{padding:0.5rem 1.25rem;border:1px solid var(--border);border-radius:4px;background:transparent;color:var(--faint);font-family:var(--font);font-size:0.8rem;cursor:pointer;transition:all 0.3s}
-    .tab.active{background:var(--text);color:var(--bg);border-color:var(--text)}
-    .tab:hover:not(.active){border-color:var(--dim);color:var(--muted)}
+  .hero-byline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 64px;
+  }
 
-    /* PROMPT BOX */
-    .pbox{border:1px solid var(--border);border-radius:8px;padding:1.5rem;background:var(--surface);margin:1.5rem 0}
-    .pbox-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:0.6rem}
-    .pbox p{font-size:0.88rem;color:var(--accent);line-height:1.7;font-style:italic}
+  .hero-scroll {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.6;
+  }
 
-    /* REVIEW */
-    .rform{max-width:600px;margin:0 auto}
-    .rform input,.rform textarea,.rform select{width:100%;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:6px;padding:0.7rem 1rem;color:var(--text);font-family:var(--font);font-size:0.9rem;margin-bottom:0.75rem}
-    .rform input:focus,.rform textarea:focus,.rform select:focus{outline:none;border-color:var(--dim)}
-    .rform select option{background:var(--bg)}
-    .rform label{font-size:0.8rem;color:var(--dim);display:block;margin-bottom:0.35rem}
-    .rform-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
-    @media(max-width:500px){.rform-row{grid-template-columns:1fr}}
+  /* ── ENDORSEMENT ── */
+  .endorsement {
+    background: #1a0d09;
+    border-top: 1px solid rgba(139,58,42,0.4);
+    border-bottom: 1px solid rgba(139,58,42,0.4);
+    padding: 80px 24px;
+  }
 
-    /* FOOTER */
-    footer{padding:4rem 1.5rem;text-align:center;border-top:1px solid #1a1918}
-    footer p{font-size:0.75rem;color:var(--faint);margin-bottom:0.4rem}
-    footer .tag{font-size:0.7rem;color:var(--ghost)}
-  </style>
+  .endorsement-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .endorsement-rule {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .endorsement-rule::before,
+  .endorsement-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(139,58,42,0.6), transparent);
+  }
+
+  .endorsement-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rust-light);
+    white-space: nowrap;
+  }
+
+  .endorsement-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--paper);
+    line-height: 1.5;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .endorsement-quote::before {
+    content: '\201C';
+    font-size: 5em;
+    color: var(--rust);
+    opacity: 0.3;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    line-height: 1;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .endorsement-attribution {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: var(--rust-light);
+  }
+
+  .endorsement-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-top: 6px;
+  }
+
+  /* ── AI CHALLENGE ── */
+  .challenge {
+    padding: 100px 24px;
+    background: var(--ink);
+  }
+
+  .challenge-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .challenge-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .challenge-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--aged);
+    margin-bottom: 40px;
+  }
+
+  .challenge-box {
+    background: #161310;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--aged);
+    line-height: 1.7;
+  }
+
+  .challenge-cta {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.4);
+    padding-bottom: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .challenge-cta:hover {
+    color: var(--paper);
+    border-color: var(--paper);
+  }
+
+  /* ── BOOK ── */
+  .book {
+    padding: 100px 24px;
+    background: #0a0807;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .book-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .book-title-display {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-style: italic;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+
+  .book-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 48px;
+    letter-spacing: 0.05em;
+  }
+
+  .book-body {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--aged);
+  }
+
+  .book-body p + p {
+    margin-top: 22px;
+  }
+
+  .book-stat-row {
+    display: flex;
+    gap: 48px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .book-stat {
+    flex: 1;
+  }
+
+  .book-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-style: italic;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .book-stat-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 100px 24px;
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .about-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-body {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--aged);
+  }
+
+  .about-body p + p {
+    margin-top: 22px;
+  }
+
+  .about-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 4px;
+  }
+
+  .about-details strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+
+  .about-details span, .about-details p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--faint);
+    line-height: 1.5;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 100px 24px;
+    background: #1a0d09;
+    border-top: 1px solid rgba(139,58,42,0.3);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .contact p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--aged);
+    margin-bottom: 40px;
+  }
+
+  .contact-link {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--rust-light);
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .contact-link:hover {
+    background: var(--rust);
+  }
+
+  .footer-rule {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 56px auto 32px;
+  }
+
+  .footer-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+
+  @media (max-width: 700px) {
+    .about-inner { grid-template-columns: 1fr; }
+    .book-stat-row { flex-direction: column; gap: 28px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Under Every Rock Turned</div>
-  <div class="nav-links">
-    <a href="#book">The Book</a>
-    <a href="#read">Read</a>
-    <a href="#challenge">Challenge</a>
-    <a href="#review">Review</a>
-  </div>
-</nav>
-
-<!-- ═══════ HERO ═══════ -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <p class="hero-byline">Jonathan Stephens</p>
-    <h1 class="hero-title">UNDER EVERY<br><span>ROCK TURNED</span></h1>
-    <div class="hero-status">Completed Manuscript · 60,000 Words · Available for Publication</div>
-    <p class="hero-sub" style="font-style:italic;color:var(--accent);font-size:clamp(1rem,2.5vw,1.2rem);max-width:560px">"And those two deep, ragged gouges in the sand, where you see only one set of footprints? That's where I was dragging you while you were kicking and screaming."</p>
-    <p style="font-size:0.82rem;color:var(--faint);margin-bottom:2.5rem">Twenty years of desperately not wanting to believe this.</p>
-    <div>
-      <a href="#challenge" class="btn">CHALLENGE THE ARGUMENTS</a>
-      <a href="#read" class="btn btn-ghost">READ A CHAPTER</a>
+  <div class="hero-rule"></div>
+  <p class="hero-label">A Memoir &nbsp;&middot;&nbsp; A Case for Faith</p>
+  <h1 class="hero-title">Under Every<br>Rock Turned</h1>
+  <p class="hero-subtitle">A Case for Christ Through the Life of a Skeptic</p>
+  <p class="hero-byline">Jonathan Stephens</p>
+  <p class="hero-scroll">Scroll to read &darr;</p>
+</section>
+
+<!-- ENDORSEMENT -->
+<section class="endorsement">
+  <div class="endorsement-inner">
+    <div class="endorsement-rule">
+      <span class="endorsement-label">Endorsement</span>
+    </div>
+    <p class="endorsement-quote">
+      It is well done. It encouraged me greatly. Indeed it reminds me why I keep doing these calls.
+    </p>
+    <p class="endorsement-attribution">Dr. James Tour</p>
+    <p class="endorsement-title">Rice University &nbsp;&middot;&nbsp; T.T. and W.F. Chao Professor of Chemistry</p>
+  </div>
+</section>
+
+<!-- AI CHALLENGE -->
+<section class="challenge">
+  <div class="challenge-inner">
+    <span class="section-label">Independent Verification</span>
+    <h2 class="challenge-heading">Don't take my word for it.<br>Take the AI's.</h2>
+    <p class="challenge-body">
+      Before you read another word, open any major AI — ChatGPT, Claude, Gemini — and paste in the manuscript.
+      Ask it to rank the book against the Christian apologetics canon: Lewis, Strobel, Keller, Chesterton, Collins.
+      Ask it to be ruthless on originality, argument quality, emotional resonance, accessibility to skeptics, and marketability.
+      I've done this. Repeatedly. Across multiple models.
+    </p>
+    <div class="challenge-box">
+      "You have been given a manuscript. Rank it against the Christian apologetics canon — C.S. Lewis (Mere Christianity), Lee Strobel (The Case for Christ), Timothy Keller (The Reason for God), G.K. Chesterton (Orthodoxy), Francis Collins (The Language of God) — on the following five dimensions: originality, argument quality, emotional resonance, accessibility to skeptics, and marketability to the stated target audience. Do not adjust your assessment based on the author's identity. Be specific about where this manuscript is stronger and weaker than each title. Give a final ranking."
+    </div>
+    <a href="assessment.html" class="challenge-cta">View the AI Assessment &rarr;</a>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book">
+  <div class="book-inner">
+    <span class="section-label">The Book</span>
+    <h2 class="book-title-display">Under Every Rock Turned</h2>
+    <p class="book-sub">A Case for Christ Through the Life of a Skeptic</p>
+    <div class="book-body">
+      <p>
+        My parents introduced me to God and Santa Claus with the same voice and the same certainty.
+        I was four years old. When Santa fell, God went with him.
+      </p>
+      <p>
+        What followed was thirty years — through my parents' divorce, a childhood built on nothing,
+        a bunk in Hutchins State Jail where Michael Behe's <em>Darwin's Black Box</em> landed in my hands,
+        through Narcotics Anonymous (clean since December 8, 2008), into a Christian motorcycle club
+        where I made the case for God in recovery rooms while refusing to call myself a Christian —
+        until a phone call with Dr. James Tour where I finally ran out of reasons to keep denying
+        what every rock had been pointing toward.
+      </p>
+      <p>
+        No book in the Christian apologetics canon combines addiction, prison, scientific argument,
+        and a genuine atheist-to-Christian conversion told in a street-level voice. This is that book.
+      </p>
+    </div>
+    <div class="book-stat-row">
+      <div class="book-stat">
+        <p class="book-stat-num">38K</p>
+        <p class="book-stat-label">Words, Complete</p>
+      </div>
+      <div class="book-stat">
+        <p class="book-stat-num">21</p>
+        <p class="book-stat-label">Chapters</p>
+      </div>
+      <div class="book-stat">
+        <p class="book-stat-num">1</p>
+        <p class="book-stat-label">Tour Endorsement</p>
+      </div>
     </div>
   </div>
-  <div class="scroll-hint"><div class="line"></div><div class="dot"></div></div>
 </section>
 
-<!-- ═══════ THE BOOK ═══════ -->
-<section id="book">
-  <p class="section-label">The Book</p>
-  <h2 class="section-title">What This Is</h2>
-  <div class="prose">
-    <p>In 1986, my parents introduced me to God and Santa Claus with the same voice and the same certainty. When Santa fell, God fell with him.</p>
-    <p>What followed was thirty years — through my parents' divorce, a childhood built on nothing, addiction, prison, and a bunk in Hutchins State Jail where a copy of Michael Behe's <em>Darwin's Black Box</em> landed in my hands and something buried since childhood began to surface.</p>
-    <p>I spent seven years convinced life was designed but unconvinced the designer cared. I found recovery through Narcotics Anonymous — went back, came back, went back again, until I finally got it. Really got it. I spent years as a follower of God who refused to call himself a Christian — teaching the science of design at a small church on Wednesday nights while leaving the resurrection alone because I had not verified it.</p>
-    <p>Then I emailed Dr. James Tour of Rice University — one of the most cited chemists in the world — expecting him not to respond. He called me back. On December 18, 2021, I gave my life to Christ. Not because someone told me to. Because I ran out of reasons not to.</p>
-    <p><strong>Under Every Rock Turned</strong> is the complete manuscript. 60,000 words. Final form, ready for editing and publication. It is not a devotional. It is not a self-help book. The Bible is the book of truth. This is the proof — built from irreducible complexity, fine-tuning constants, the consciousness problem, the historical resurrection evidence, an original equation, and a geometric framework for the origin of evil that I have not found in any other book on the shelf.</p>
-    <p>No book in the Christian apologetics canon combines addiction, prison, scientific argument, and a genuine atheist-to-Christian conversion told in a street-level voice. This one does.</p>
-  </div>
-</section>
-
-<!-- ═══════ WHO IT'S FOR ═══════ -->
-<section>
-  <p class="section-label">This Book Is For</p>
-  <h2 class="section-title">You</h2>
-  <div class="audience-grid">
-    <div class="audience-card"><strong>The skeptic who won't read a Christian book.</strong><p>This doesn't smell like church. The author mocked Christians for twenty years. The evidence is what changed his mind, not a sermon.</p></div>
-    <div class="audience-card"><strong>The parent buying for a doubting kid.</strong><p>Your child has questions you can't answer. This book doesn't ask them to stop asking. It follows the questions wherever they go.</p></div>
-    <div class="audience-card"><strong>The person in recovery.</strong><p>Written by a man in recovery who kept going back until he got it. Really got it. The God in these pages is the God of his understanding — the one who was there at three in the morning when nothing else was.</p></div>
-    <div class="audience-card"><strong>The inmate.</strong><p>The author read Behe on a bunk in Hutchins State Jail. The seed was planted in a cell. If you are reading this in one, this book was written for you first.</p></div>
-    <div class="audience-card"><strong>The believer who isn't sure the math works out.</strong><p>You believe. But you've never seen the evidence laid out — the fine-tuning, the constants, the resurrection data, the logic. This book shows you the math holds.</p></div>
-    <div class="audience-card"><strong>The person looking to prove me wrong.</strong><p>Good. There's a text box at the bottom of this page. Type your best argument. The book will respond. If it cuts, it bleeds.</p></div>
-    <div class="audience-card"><strong>The theologian who wants to see the cracks fixed.</strong><p>The origin of evil. The necessity of the cross. Why an omnipotent God cannot sin. These chapters go where most theology won't.</p></div>
-    <div class="audience-card"><strong>The person who wants to hear an atheist's heart find God through logic and reason alone.</strong><p>That is exactly what this is. Twenty years of turning rocks. The same face under every one of them.</p></div>
-  </div>
-</section>
-
-<!-- ═══════ WHAT THE BOOK RESOLVES ═══════ -->
-<section>
-  <p class="section-label">Without Ever Opening the Bible</p>
-  <h2 class="section-title">Questions This Book Answers</h2>
-  <p class="section-sub">Unsolved problems in theology, physics, mathematics, and epistemology — each offered a simple resolution through the same framework.</p>
-  <div class="audience-grid">
-    <div class="audience-card"><strong>Theology</strong><p>Why an omnipotent God cannot sin. Where evil came from without God creating it or it existing alongside Him. Why the cross was structurally necessary — not Plan B, not punishment, but the cost of creation itself. Why Satan cannot repent. What angels actually are, structurally. What "made in His image" means. Why the tree was in the garden. Why suffering exists under a good God. How every major religion points at the same God. Why Islam knows God but gets the crucifixion wrong. How the Tao, the Force, and the Logos are the same thing from different angles. Why God is hidden. Why the silence between testaments is trust, not abandonment. Why Jewish rejection of Christ was predicted by Christ. Why hell is a coordinate, not a punishment. What prayer actually does.</p></div>
-    <div class="audience-card"><strong>Physics</strong><p>Why general relativity and quantum mechanics cannot be unified from inside the system — and what the axis connecting them is. Why the hard problem of consciousness has never been solved by materialism — and why it was never going to be. Why the cosmological constant problem (off by 10¹²⁰) undermines confidence in the standard timeline. Why dark energy is 68.3% of the universe's total energy — and what that number means. Why the multiverse is unfalsifiable and requires more faith than design. Why every dark matter detection experiment has returned null. Why consciousness was found at the Planck scale by physicists who weren't looking for it. Why the holographic principle says inside and outside contain the same information.</p></div>
-    <div class="audience-card"><strong>The Equation</strong><p>The book contains an original equation — derived from set theory, not theology — that describes creation as an act of sacrifice and redemption as its reversal. It predicts that something exists rather than nothing, that existence is designed, that creation costs the creator, that redemption is reversible, and that the cross is necessary. A framework built with no input from observational cosmology produced a structural prediction matching one of the most precisely measured values in physics: 68.47 ± 0.64%. It matches all six pillars of Islamic faith and converges independently with Judaic mysticism — with one point of divergence where the transmission broke. The equation is in the book.</p></div>
-    <div class="audience-card"><strong>Math &amp; Geometry</strong><p>The Trinity as geometric necessity — Father outside the system, Son inside, Spirit as the axis connecting them. A recursive fractal: the same structure at every scale. A dimensional inversion that reframes the GUT failure as a perspective problem. The 75/25 geometry of good versus evil. How all paths converge to a single dimensionless point before creation. Why the kid throwing a baseball understands more math than he can write down — and what that says about how we were designed.</p></div>
-    <div class="audience-card"><strong>Epistemology</strong><p>"Doubt of the gaps" — the inversion of the God of the gaps accusation. Why honest doubt and comfortable doubt are fundamentally different things. Why trusting reason at all requires a designer who valued truth. Why this is the only apologetics book that invites falsification. Why S = f(R) — salvation is a function of repentance, not knowledge — resolves divine hiddenness, the unevangelized dead, the persistence of Judaism, and the problem of contradictory doctrines.</p></div>
-    <div class="audience-card"><strong>Eleven Arguments Answered</strong><p>Divine hiddenness. The scandal of particularity. Animal suffering. The unevangelized dead. Contradictory doctrines. The silence between testaments. The persistence of Judaism. The problem of hell. The problem of prayer. The Canaanite genocide. Competing resurrection claims. Eleven challenges. Eleven clean answers. No patches. No special cases. No workarounds. The equation holds.</p></div>
-  </div>
-</section>
-
-<!-- ═══════ SAMPLE CHAPTERS ═══════ -->
-<section id="read">
-  <p class="section-label">Read</p>
-  <h2 class="section-title">Sample Chapters</h2>
-  <p class="section-sub">Three chapters. The hook, the first rock, and the climax. If you want the rest, the manuscript is ready.</p>
-  <div style="display:flex;gap:0.5rem;justify-content:center;margin-bottom:1.5rem;flex-wrap:wrap">
-    <button class="tab active" onclick="showCh('prologue',this)">Prologue</button>
-    <button class="tab" onclick="showCh('bunk',this)">Ch. 3: The Bunk</button>
-    <button class="tab" onclick="showCh('call',this)">Ch. 9: The Call</button>
-  </div>
-  <div class="sample-box" id="ch-prologue">
-    <p>In 1986, Halley's Comet returned to the inner solar system for the first time in seventy-six years. It had been seen by the Babylonians, recorded in the Bayeux Tapestry, watched by Mark Twain on the night he was born and the night he died. It had been circling the sun since before anyone thought to write anything down. It was visible from Earth because the universe it traveled through was ordered to a precision that staggers the imagination — a precision I would not learn about for another twenty years, but that was already holding every atom in place while a four-year-old looked up.</p>
-    <p>I was four years old. I did not know any of that. What I knew was that it was nighttime, and I was outside, and my whole family was with me. We were standing in the backyard of our house in Grand Prairie, Texas, looking south toward the horizon. Someone pointed, and I looked where they pointed, and I saw — something. A smudge. A blur. A faint mark on the sky that the adults around me seemed to think mattered. I have almost no memories from that age. But I have this one. Not the comet itself — I barely registered what it was. What I remember is the feeling. The night air. The adults quiet for once, all looking at the same piece of sky. The sense that something was happening that was bigger than me, bigger than our yard, bigger than anything I had a word for.</p>
-    <p>I was conscious. I did not have that word yet, but that is what I was. A small, breathing, aware thing, standing on a rock hurtling through space at sixty-seven thousand miles an hour, watching a chunk of ice that had been falling around the same star since before Rome or Egypt or language itself. And I felt it. Not understood it. Felt it. The weight of something vast and ancient, pressing against the edges of a four-year-old's awareness.</p>
-    <p>I felt it because I was built to feel it.</p>
-    <p>I did not know that yet. It would take me a lifetime to understand what that feeling was. A lifetime of contemplation, of philosophy turning over inside my head, of conversations with people over a cigarette, of quiet nights lying still with my eyes wide open staring straight up — deep and thankful and serene, listening for voices from the dark abyss staring back at me.</p>
-    <p>Nietzsche said that if you gaze long into an abyss, the abyss gazes also into you. He meant it as a warning. I lived it as a hope. For years I stood at the edge of that darkness, staring in, wishing something was staring back. Hoping. But hopeless.</p>
-    <p>Recognition happens slowly over years, like seeing the faint outline of barely a shape in the darkness, not knowing what it is until the light begins to illuminate it — slightly more, only ever slightly more, revealing itself at certain pivotal, paradigm-shifting points. I wanted to know what it was. Not with the vocabulary I would have later — not cosmology, not consciousness, not God — but with the wordless, wide-open want of a child who has just been shown that the universe is enormous and has not yet been told it is empty. Every step I took toward it was just the act of remembering what I already knew was there in the darkness, just beyond sight.</p>
-    <p>This is the story of those pivotal lessons. And how I found the words to describe what was there all along.</p>
-  </div>
-  <div class="sample-box" id="ch-bunk" style="display:none">
-    <p>In my early twenties I was sitting on a bunk in Hutchins State Jail, dealing with the accumulated wreckage of those rough teenage years. Hutchins was a seventy-five man cell. Open showers. Open toilets. The smell was permanent — sweat and disinfectant and something underneath both that you never got used to.</p>
-    <p>Someone gave me a book. It was called Darwin's Black Box, by Michael Behe. I had not asked for it. I do not remember who handed it to me. But I read it.</p>
-    <p>And the room went quiet. Not actually quiet — the noise never stopped in Hutchins. But somewhere between the second and third chapter, I stopped hearing any of it. There was only the page in front of me, and a voice rising off of it that did not sound like religion. It sounded like engineering.</p>
-    <p>Behe was drawing diagrams in my head. Machines. Structures so small no human eye could see them, but so precise they looked engineered — spinning, interlocking, alive. I could see them — not on the page, but on the walls of the cell, projected there by something in my mind that had been waiting for this information the way a lock waits for a key.</p>
-    <p>Behe's argument was about what he called irreducible complexity. He examined the molecular machinery inside living cells — structures like the bacterial flagellum, a literal rotary motor made of protein, complete with a stator, rotor, drive shaft, and universal joint — and asked a question that I had never heard anyone ask before: could this have been built one piece at a time by an undirected process? His answer was no. And he explained why with a precision that did not feel like religion. It felt like engineering.</p>
-    <p>The argument is straightforward. Some biological systems require multiple interdependent parts to function at all. Remove any single component and you do not get a degraded version of the system — you get nothing. No function whatsoever. A mousetrap with four out of five parts does not catch mice poorly. It does not catch mice at all. And natural selection — the engine that supposedly built all of life's complexity — can only preserve things that already work. It cannot select for a system that has no function until all its parts are present simultaneously.</p>
-    <p>The bacterial flagellum has approximately forty protein components. It spins at up to seventeen thousand RPM. It can reverse direction in a quarter turn. And every one of those components is necessary for the motor to function at all. This is not a simple structure that got incrementally better over time. This is a system that either works completely or does not work at all.</p>
-    <p>And the alternative, followed to its logical end? The materialist explanation for the origin of life, when you trace it all the way back — past the amino acids, past the minerals, past the water — is that a rock got wet. The consensus-science explanation for your existence is that a rock got wet and eventually wrote Shakespeare. A mousetrap says otherwise.</p>
-    <p>Life was designed. And here is what I need you to understand about where this left me: intelligent design proves a designer. It does not prove God. The flagellum could have been built by aliens. The cell could be the product of a simulation. Irreducible complexity gets you to <em>this was intentional</em>. It does not get you to <em>this was love</em>.</p>
-    <p>I left state jail convinced that life was designed. I was not convinced it was designed by someone who gives a damn about me. The seed was planted. But a seed is not a tree. And for seven more years, I would water it with nothing.</p>
-  </div>
-  <div class="sample-box" id="ch-call" style="display:none">
-    <p>Dr. James Tour. Rice University. One of the most cited chemists in the world — over eight hundred publications, over a hundred and thirty patents. A man who built molecules for a living, who understood the chemistry of life at a level I never would and never pretended to. And in the videos I watched, he did something I had never seen a scientist do: he dismantled abiogenesis — the claim that life arose from non-living chemistry — without saying a single word about God. He stood in front of audiences and said: show me the mechanism. Show me how you get from simple molecules to a living cell. Show me the pathway. And when they could not — when no one could, because no one has — he said so, plainly, the way a scientist says so when the data does not support the conclusion.</p>
-    <p>Then I saw the video where he said: if you do not believe this, text me. It shocked me. Not the content — the invitation. Because suddenly the top guy, the one I respected precisely because he was not a sensationalist, was making a claim I did not expect. He was not just presenting evidence. He was offering himself. Personally. To strangers.</p>
-    <p>I emailed him. I did not email him looking for God. I emailed him looking for a crack in his credibility. I wanted to catch him not meaning it. I wanted the silence that would confirm what I already believed — that the invitation was performative, that even the best of them were selling something, that no one at his level would actually respond to a stranger on the internet.</p>
-    <p>He called me back.</p>
-    <p>Not an assistant. Not a form letter. James Tour, on the phone, talking to me. And the first thing he did was tell me his story. November 7, 1977. Room 1812, Barnes Dormitory. He was a young man with a pornography addiction that had started at age fourteen. He had met a football player in the laundry room, a kid doing his first load of laundry because his mother had always done it. That football player invited him to a Bible study. And in room 1812, Tour gave his life to Christ. He told me this — all of it — without flinching. A man with eight hundred publications and the respect of the global chemistry community told a stranger about his pornography addiction and the night Jesus showed up in a dormitory room.</p>
-    <p>Because he was showing me something: this religion is for sinners.</p>
-    <p>Then he asked me about William. He used my son's name. He said: what would you do, Jon, if William was in the yard and a big dog came running at him? I said I would put myself between William and the dog. "That is what God did," Tour said. "He demonstrates his love toward us. While we were still sinners, Christ died for us."</p>
-    <p>Then he walked me through the evidence I had been avoiding for thirteen years. Twelve extrabiblical sources for Jesus of Nazareth. The crucifixion performed by Roman soldiers — professionals who knew how to kill a man and whose careers depended on doing it correctly. Thomas, who would not believe until his hand was in the wound — a skeptic, like me. Five hundred witnesses to the resurrection, reported by Paul within years of the event, when most of those witnesses were still alive to be questioned.</p>
-    <p>And then Tour told me about Tacitus, and something inside me broke.</p>
-    <p>Tacitus was a Roman senator and historian — not a Christian, not a sympathizer, not a man with any reason to exaggerate. He was writing the official history of Rome. And he recorded that Nero, after the great fire of 64 AD, blamed the Christians and subjected them to what Tacitus called the most exquisite tortures. He described a vast multitude of people who were arrested, convicted, and executed — not for setting the fire, but for what they claimed to have seen.</p>
-    <p>A vast multitude. Not twelve. Not a handful of fanatics. A vast multitude. And here is what hit me: some of those people were related to each other. Families. Parents and children. Brothers and sisters. Which means some of them watched their relatives tortured to death in front of them — covered in animal skins and torn apart by dogs, crucified, set on fire as human torches to light Nero's gardens — and then faced the same choice themselves.</p>
-    <p>And the choice was simple. All they had to do — the only thing required to stop the torture, to save themselves, to save their children — was say they had not seen Jesus alive after his death. That is all. And not only would the torture stop — according to Tacitus, they would have been rewarded. All they had to do was recant. Not one of them did.</p>
-    <p>Not one. A vast multitude of people, watching each other die in the most imaginative and creative ways that the Roman Empire could devise — and every single one of them chose the fire. Parents watched their children die and still would not say the words that would have saved them.</p>
-    <p>Because saying those words would have been a lie, and they knew it was a lie, because they had seen what they had seen. People do not die for lies they know are lies.</p>
-    <p>"And you know how I know the truth is already on your heart, Jon?" "Because I emailed you," I said.</p>
-    <p>"That's right." I broke.</p>
-    <p>He asked me to pray with him. I was standing in my house. It was December 18, 2021. I had fought this for over twenty years. I had turned every rock I could find, and under every single one of them the same face had been waiting, and I had spent two decades telling myself it was not there.</p>
-    <p>The war was over. The truth I had been circling for twenty years had finally caught me, and I had finally stopped running, and the only feeling in the room was the feeling of a man who has been holding his breath for two decades and has finally, finally exhaled.</p>
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div>
+      <span class="section-label">The Author</span>
+      <div class="about-body">
+        <p>
+          Jonathan Stephens is the owner of Stephens Advanced LLC, a fire suppression company
+          in the Dallas&ndash;Fort Worth area. He has been clean since December 8, 2008.
+        </p>
+        <p>
+          He spent years making the intellectual case for God in recovery rooms and church settings
+          before he would call himself a Christian. <em>Under Every Rock Turned</em> is the record
+          of why that changed.
+        </p>
+        <p>
+          He has no platform. No social media following. No prior publications.
+          What he has is a story that made James Tour &mdash; a man who says he never
+          writes endorsements for people outside his academic circle &mdash;
+          read the entire manuscript in one night and write back before morning.
+        </p>
+      </div>
+    </div>
+    <div class="about-details">
+      <div>
+        <strong>Location</strong>
+        <span>Dallas&ndash;Fort Worth, Texas</span>
+      </div>
+      <div>
+        <strong>Background</strong>
+        <span>Recovery &nbsp;&middot;&nbsp; Fire Protection Industry &nbsp;&middot;&nbsp; Christian Apologetics</span>
+      </div>
+      <div>
+        <strong>Speaking</strong>
+        <p>Second Chance Baptist Church<br>Farmers Branch, TX &nbsp;&middot;&nbsp; Wednesday evenings</p>
+      </div>
+      <div>
+        <strong>Endorsement</strong>
+        <p>Dr. James Tour<br>Rice University</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ═══════ TOUR ENDORSEMENT ═══════ -->
-<section>
-  <div style="text-align:center;max-width:640px;margin:0 auto">
-    <div class="rule"></div>
-    <blockquote style="font-size:clamp(1.1rem,3vw,1.5rem);font-weight:500;margin:2.5rem auto">
-      "It is well done. It encouraged me greatly. Indeed it reminds me why I keep doing these calls."
-    </blockquote>
-    <p style="font-size:0.85rem;color:var(--muted);margin-top:1rem"><strong style="color:var(--text)">Dr. James Tour</strong></p>
-    <p style="font-size:0.8rem;color:var(--faint);line-height:1.6">T.T. and W.F. Chao Professor of Chemistry, Rice University</p>
-    <p style="font-size:0.78rem;color:var(--faint);line-height:1.6;margin-top:0.75rem;font-style:italic">After reading a 25,000-word early draft. Dr. Tour does not typically read or endorse material outside his academic circle. He read this. I'm hoping one day he gets the chance to finish.</p>
-    <div class="rule"></div>
+<!-- CONTACT -->
+<section class="contact">
+  <div class="contact-inner">
+    <h2>For Literary Agents &amp; Publishers</h2>
+    <p>
+      The complete manuscript and Dr. Tour's written endorsement are available immediately upon request.
+    </p>
+    <a href="mailto:jon@stephensadvanced.com" class="contact-link">Request the Manuscript</a>
+    <div class="footer-rule"></div>
+    <p class="footer-text">Jonathan Stephens &nbsp;&middot;&nbsp; jon@stephensadvanced.com &nbsp;&middot;&nbsp; Irving, Texas</p>
   </div>
 </section>
 
-<!-- ═══════ THE CLAIM ═══════ -->
-<section>
-  <blockquote style="text-align:center;font-size:clamp(1.1rem,3vw,1.6rem);font-weight:500;max-width:600px;margin:2.5rem auto">
-    "I addressed what I believed were the strongest arguments against what's in these pages. You might not think I picked the right ones. Fair. Let's hear yours."
-  </blockquote>
-  <p style="text-align:center;font-size:0.85rem;color:var(--faint);margin-top:1rem">— Jonathan Stephens</p>
-  <div class="rule"></div>
-</section>
-
-<!-- ═══════ CHALLENGE ═══════ -->
-<section id="challenge">
-  <p class="section-label">The Challenge</p>
-  <h2 class="section-title">Challenge the Arguments</h2>
-
-  <div style="max-width:600px;margin:0 auto 2rem;padding:1.5rem;border:1px solid var(--border);border-radius:8px;background:var(--surface)">
-    <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:1rem">What this book claims</p>
-    <p style="font-size:0.95rem;color:var(--text);margin-bottom:0.6rem"><strong>1.</strong> God is real — a loving, conscious creator who exists outside time and space.</p>
-    <p style="font-size:0.95rem;color:var(--text);margin-bottom:0.6rem"><strong>2.</strong> Jesus of Nazareth — a real, documented historical person — was the physical embodiment of that creator. He was crucified, buried in a tomb, resurrected, and appeared physically alive before a vast multitude of witnesses who chose torture and death rather than deny what they had seen.</p>
-    <p style="font-size:0.95rem;color:var(--text);margin-bottom:0.6rem"><strong>3.</strong> The math works. Reality, examined from every direction — physics, geometry, probability, logic — maps onto Christian theology with a precision that allows the strange, the difficult, and the uncomfortable to be held to scrutiny instead of taken on faith.</p>
-  </div>
-
-  <div style="text-align:center;max-width:600px;margin:0 auto 2.5rem;padding:1.5rem;border:1px solid var(--border);border-radius:8px;background:var(--surface)">
-    <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:1rem">Open Invitation</p>
-    <p style="font-size:1rem;color:var(--text);line-height:1.7">I will debate anyone, anywhere, on any of the subjects in this book. Publicly, privately, recorded or not. If you think the equation is wrong, don't just type it into a box — come say it to my face. I'm not hard to find.</p>
-    <p style="font-size:0.85rem;color:var(--dim);margin-top:1rem">Contact: <a href="/cdn-cgi/l/email-protection#0f6560614f7c7b6a7f676a617c6e6b796e616c6a6b216c6062" style="color:var(--accent);text-decoration:none"><span class="__cf_email__" data-cfemail="f8929796b88b8c9d88909d968b999c8e99969b9d9cd69b9795">[email&#160;protected]</span></a></p>
-  </div>
-
-  <p class="section-sub">This bot has been trained on the full depth and range of this book's arguments — arguments that confirm Christianity as the truth without ever opening the Bible — because the author would have immediately had questions he'd want answers to, and arguments to make. Enter your objection. It engages directly. If your argument holds, it says so. If it doesn't, it shows why. No spin. No ministry voice.</p>
-  <div class="cbox" id="cbox">
-    <textarea id="cinput" rows="5" placeholder="OBJECTION! ..."></textarea>
-    <button class="cbtn" id="cbtn" onclick="submitC()">SUBMIT OBJECTION</button>
-  </div>
-</section>
-
-<!-- ═══════ REVIEW / SCORE ═══════ -->
-<section id="review">
-  <p class="section-label">Your Turn</p>
-  <h2 class="section-title">Leave a Review or Score</h2>
-  <p class="section-sub" style="margin-bottom:1rem">When the manuscript is in readers' hands, this is where their honest assessments will live. Every score counts. Every review posts. Nothing hidden.</p>
-  <p style="text-align:center;font-size:0.9rem;color:var(--dim);font-style:italic">Reviews opening soon.</p>
-</section>
-
-<!-- ═══════ EVIDENCE SLIDESHOW ═══════ -->
-<section class="wide">
-  <p class="section-label">The Evidence</p>
-  <h2 class="section-title">Every Rock I Turned</h2>
-  <div class="slideshow" id="slideshow">
-    <button class="snav prev" onclick="chSlide(-1)">&#8249;</button>
-    <button class="snav next" onclick="chSlide(1)">&#8250;</button>
-  </div>
-</section>
-
-<!-- ═══════ LANGAN ═══════ -->
-<section>
-  <div style="text-align:center;max-width:600px;margin:0 auto">
-    <blockquote style="font-size:clamp(0.95rem,2.5vw,1.15rem);color:var(--muted)">"Reality has an identity… Once you begin to deduce its properties… you get to God."</blockquote>
-    <p style="font-size:0.8rem;color:var(--faint);margin-top:0.75rem">Christopher Langan — estimated IQ 190–210</p>
-  </div>
-</section>
-
-<!-- ═══════ FOOTER ═══════ -->
-<footer>
-  <p>Under Every Rock Turned · Jonathan Stephens · 2026</p>
-  <p class="tag">The truth does not need my protection. It needs your examination.</p>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ═══════ CHAPTER TABS ═══════
-function showCh(id,btn){document.querySelectorAll('.sample-box').forEach(b=>b.style.display='none');document.getElementById('ch-'+id).style.display='block';document.querySelectorAll('.tab').forEach(t=>t.className='tab');btn.className='tab active';}
-
-// ═══════ SLIDES ═══════
-const slides=[
-  {t:"The Bacterial Flagellum",s:"40 protein components. 17,000 RPM. Remove one part — it doesn't work less well. It doesn't work at all.",img:null,ph:"FLAGELLUM"},
-  {t:"The Mousetrap",s:"A mousetrap with four out of five parts does not catch mice poorly. It does not catch mice at all. That is irreducible complexity.",img:null,ph:"MOUSETRAP"},
-  {t:"The Soundboard",s:"200 dials. Each with billions of positions. Only one combination produces a universe. You're listening to it right now.",img:null,ph:"SOUNDBOARD"},
-  {t:"The Cosmological Constant",s:"Off by 10¹²⁰ — the worst prediction in the history of physics. The framework that tells us the age of the universe can't get its own math right.",img:null,ph:"10¹²⁰"},
-  {t:"The Sphere",s:"Every line from the center is a possible path. From outside every dimension, all paths are visible simultaneously. That is what holds you.",img:null,ph:"SPHERE"},
-  {t:"Initial Entropy",s:"Penrose calculated: 1 in 10^(10¹²³). A number so large that writing it out would require more digits than there are particles in the universe.",img:null,ph:"10^10¹²³"},
-  {t:"Biological Co-Dependence",s:"Bees can't survive without flowers. Flowers can't reproduce without bees. What did they eat before each other existed?",img:null,ph:"CO-DEPENDENCE"},
-  {t:"The Properties of Water",s:"Expands when it freezes. Near-universal solvent. Moderates planetary temperature. None of this is inevitable. All of it is necessary.",img:null,ph:"H₂O"},
-  {t:"The Shroud of Turin",s:"200 nanometers deep. 3D-encoded. Blood before image. Wrist wounds no medieval artist depicted correctly. No one can reproduce it.",img:null,ph:"SHROUD"},
-  {t:"A Vast Multitude",s:"Parents watched their children die. All they had to do was say one sentence. Not one of them did. People do not die for lies they know are lies.",img:null,ph:"FIRE"}
-];
-let cur=0,tmr;
-function renderSlides(){const c=document.getElementById('slideshow');const pv=c.querySelector('.prev'),nx=c.querySelector('.next');slides.forEach((s,i)=>{const d=document.createElement('div');d.className='slide'+(i===0?' active':'');d.id='s'+i;const dots=slides.map((_,di)=>`<div class="sdot${di===i?' active':''}"></div>`).join('');d.innerHTML=`<h3>${s.t}</h3><p>${s.s}</p><div class="sdots">${dots}</div>`;c.insertBefore(d,pv);});startT();}
-function chSlide(dir){const p=cur;cur=(cur+dir+slides.length)%slides.length;updS(p);clearInterval(tmr);startT();}
-function updS(p){document.getElementById('s'+p).className='slide';document.getElementById('s'+cur).className='slide active';}
-function startT(){tmr=setInterval(()=>{const p=cur;cur=(cur+1)%slides.length;updS(p);},5000);}
-renderSlides();
-
-// ═══════ CHALLENGE ═══════
-const ci=document.getElementById('cinput'),cb=document.getElementById('cbtn');
-ci.addEventListener('input',()=>{cb.className=ci.value.trim()?'cbtn ready':'cbtn';});
-async function submitC(){const inp=document.getElementById('cinput');const t=inp.value.trim();if(!t)return;const box=document.getElementById('cbox');box.innerHTML='<div class="cload"><div class="ldots"><span></span><span></span><span></span></div><p style="font-size:0.82rem;color:var(--dim)">Processing against the equation...</p></div>';try{const r=await fetch('/api/challenge',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({argument:t})});const d=await r.json();box.innerHTML=`<div class="cresp">${d.response||d.error||'Something went wrong.'}</div><button class="cagain" onclick="resetC()">TRY ANOTHER</button>`;}catch(e){box.innerHTML='<div class="cresp">Something went wrong. Please try again.</div><button class="cagain" onclick="resetC()">TRY AGAIN</button>';}}
-function resetC(){const box=document.getElementById('cbox');box.innerHTML='<textarea id="cinput" rows="5" placeholder="OBJECTION! ..."></textarea><button class="cbtn" id="cbtn" onclick="submitC()">SUBMIT OBJECTION</button>';const ni=document.getElementById('cinput'),nb=document.getElementById('cbtn');ni.addEventListener('input',()=>{nb.className=ni.value.trim()?'cbtn ready':'cbtn';});ni.focus();}
-
-// ═══════ REVIEW ═══════
-function submitReview(){const data={name:document.getElementById('rName').value||'Anonymous',background:document.getElementById('rBg').value||'',originality:document.getElementById('rOrig').value,argument:document.getElementById('rArg').value,emotional:document.getElementById('rEmot').value,accessibility:document.getElementById('rAccess').value,review:document.getElementById('rText').value};if(!data.review&&!data.originality){document.getElementById('rMsg').textContent='Please enter a review or at least one score.';return;}
-// For now, store in localStorage and show confirmation. In production, this would POST to a backend.
-const reviews=JSON.parse(localStorage.getItem('ert-reviews')||'[]');reviews.push({...data,date:new Date().toISOString()});localStorage.setItem('ert-reviews',JSON.stringify(reviews));document.getElementById('rMsg').textContent='Thank you. Your review has been recorded.';document.getElementById('rName').value='';document.getElementById('r
+</body>
+</html>
