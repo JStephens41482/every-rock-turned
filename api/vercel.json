@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/challenge", "destination": "/api/challenge" },
+    { "source": "/(.*)", "destination": "/public/index.html" }
+  ]
+}
