@@ -379,6 +379,40 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   </div>
 </section>
 
+<!-- CHALLENGE BOX -->
+<section class="chatbot">
+  <div class="chatbot-inner">
+    <span class="label">The Challenge</span>
+    <h2 class="section-title" style="margin-bottom:12px">Don't agree?</h2>
+    <p class="section-sub" style="margin-bottom:20px">Challenge the argument.</p>
+    <p class="chatbot-intro">This AI has read every page of the manuscript. Type your best argument against God, against the resurrection, against the evidence — whatever you've got. It will engage directly, using the book's actual arguments. No sermons. No deflection. If the argument holds up, it will say so.</p>
+
+    <div class="chat-suggestions">
+      <button class="suggestion" onclick="sendSuggestion(this)">If God is good, why does evil exist?</button>
+      <button class="suggestion" onclick="sendSuggestion(this)">Evolution explains life without God</button>
+      <button class="suggestion" onclick="sendSuggestion(this)">The resurrection is just a myth like Osiris</button>
+      <button class="suggestion" onclick="sendSuggestion(this)">What about the age of the earth?</button>
+      <button class="suggestion" onclick="sendSuggestion(this)">Science will eventually explain everything</button>
+    </div>
+
+    <div class="chat-shell">
+      <div class="chat-header">
+        <div class="chat-dot"></div>
+        <span class="chat-header-text">Under Every Rock Turned &nbsp;&middot;&nbsp; Challenge the argument</span>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">
+          <div class="msg-bubble">I've read every page of this manuscript. I know its arguments, its evidence, and where it admits it doesn't have answers. Throw your best objection. If it breaks the case, I'll say so.</div>
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" type="text" placeholder="Type your argument against God, the resurrection, the evidence..." autocomplete="off" onkeydown="if(event.key==='Enter')sendMessage()">
+        <button class="chat-send" id="chatSend" onclick="sendMessage()">Challenge &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ASSESSMENT LINK -->
 <section class="assessment">
   <div class="assessment-inner">
