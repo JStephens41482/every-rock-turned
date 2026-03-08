@@ -173,6 +173,11 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 </head>
 <body>
 
+<!-- TOP BANNER -->
+<div style="background:#1a1208;border-bottom:1px solid rgba(201,168,76,.2);padding:18px 24px;text-align:center">
+  <p style="font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Seeking Literary Representation &nbsp;&middot;&nbsp; <a href="mailto:jon@stephensadvanced.com" style="color:var(--gold);text-decoration:underline;text-underline-offset:4px">Contact the Author</a></p>
+</div>
+
 <!-- HERO -->
 <section class="hero" style="position:relative;overflow:hidden">
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%">
@@ -328,6 +333,43 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
       </div>
     </div>
 
+    <!-- CHAPTER 27: THE FLOOR -->
+    <div class="chapter-block">
+      <div class="chapter-header" onclick="toggleChapter('ch4')">
+        <div>
+          <p class="sample-ch">Chapter 27</p>
+          <p class="sample-title">The Floor</p>
+        </div>
+        <span class="ch-toggle" id="ch4-arrow">Read &darr;</span>
+      </div>
+      <div class="chapter-body" id="ch4" style="display:none">
+        <p>I want to tell you what the last several chapters actually cost.</p>
+        <p>Not intellectually. The intellectual part is just following the thread. One deduction leads to the next and you either have the patience to follow it or you do not. That part does not cost anything except time and the willingness to sit with discomfort when the logic takes you somewhere you did not expect.</p>
+        <p>What it actually costs is harder to say.</p>
+        <p>My friends do not do this.</p>
+        <p>They want to be happy. They want to raise their families well and be surrounded by good people and go to church on Sunday and talk about football on Monday and be successful and do fun things and laugh and live. And I mean that without a single note of condescension — that is a genuinely good life. A full life. A life I have watched from a certain distance for as long as I can remember and wanted the warmth of without being able to stop doing the thing that keeps me standing slightly outside it.</p>
+        <p>I have never been interested in fun things. Not the way other people are. I would rather sit on the floor by myself with my head in my hands, rocking, thinking about the nature of reality, than do almost anything else I can name. I do not say that proudly. It is not a boast. It is simply the most honest description I have of what I am.</p>
+        <p>And it has cost me.</p>
+        <p>Right now, working through these ideas, the room contains a poodle, a German Shepherd, and a television on which a historian is talking about Franklin Roosevelt and the step-by-step process by which technology built itself — the telegraph to the railroad to the telephone to the thing in your hand right now — each one impossible without the one before it. Each one a deduction made physical. The room does not contain a circle of friends wanting to hear what I have been thinking about. That circle has never quite formed around me. The floor has always been easier to find than the table.</p>
+        <p>I am not telling you this for sympathy. I am telling you this because it belongs in the account.</p>
+        <p>The sphere, the triangle, the Logos in the tetrahedra, Einstein refusing to pick the rock up — none of that came from a comfortable place. It came from the floor. From the specific shape of a mind that cannot leave a question alone, that will follow a thread past the point where normal social life resumes, that finds the nature of reality more pressing than the football score and has never been entirely sure whether that is a gift or a damage or both wearing the same face.</p>
+        <p>I think it is both.</p>
+        <p>The loneliness and the work are not separate things. They are the same thing. The same wiring that makes the connection harder is the wiring that builds the sphere. You cannot have one without the other. I have tried. The floor is always there at the end of the trying.</p>
+        <p>But here is what I know from the other side of all of it.</p>
+        <p>The floor is where the deduction happens. The floor is where the rocks get turned over. The floor is where you are close enough to the ground to notice what everyone standing upright walks past without seeing.</p>
+        <p>And somewhere ahead — I believe this, I have to believe this — there are people who have been on their own floor. Who did the rocking and the thinking and paid the same price and felt the same specific kind of lonely that does not have a clean fix. Who followed the thread past where the football game resumed and found themselves in the dark with the same questions I could not leave alone.</p>
+        <p>This book is for them.</p>
+        <p>Not for the people who are already comfortable. Not for the people who never needed the argument because the faith came easy. For the ones on the floor. The ones who need it to be true and need even more for it to actually hold up when you push on it.</p>
+        <p>It holds.</p>
+        <p>I pushed on everything I could find.</p>
+        <p>Every rock.</p>
+        <p>Years of pushing.</p>
+        <p>It holds.</p>
+        <p>Get up off the floor.</p>
+        <p>I will show you.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -335,8 +377,8 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <section class="topics">
   <div class="topics-inner">
     <span class="label">What This Book Answers</span>
-    <h2 class="section-title">Eleven Questions. Eleven Answers.</h2>
-    <p class="section-sub" style="margin-bottom:48px">These are the questions that have stopped honest people for centuries. This book provides answers that do not exist anywhere else in the field.</p>
+    <h2 class="section-title">Twelve Questions the Field Has Avoided.</h2>
+    <p class="section-sub" style="margin-bottom:48px">The answers exist. They are in the book. What follows is the shape of each question — and a reason to want the answer.</p>
     <div class="topics-grid">
       <div class="topic-box">
         <p class="topic-cat">Cosmology</p>
@@ -436,12 +478,8 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         <p style="font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.75;color:var(--paper)">Jesus of Nazareth — a real, documented person — was the physical embodiment of that creator. He died, was resurrected, and appeared to a vast multitude of people.</p>
       </div>
       <div style="display:flex;gap:24px;align-items:flex-start">
-        <span style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:rgba(201,168,76,.6);line-height:1;flex-shrink:0;width:36px">4</span>
+        <span style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:rgba(201,168,76,.6);line-height:1;flex-shrink:0;width:36px">3</span>
         <p style="font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.75;color:var(--paper)">When the theological and scientific evidence across multiple disciplines is examined honestly — confirming the data of multiple leading hypotheses, leaving no known gaps in the argument — the picture that emerges is indistinguishable from Christianity. Completely. Logically. Coherently.</p>
-      </div>
-      <div style="display:flex;gap:24px;align-items:flex-start">
-        <span style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:rgba(201,168,76,.6);line-height:1;flex-shrink:0;width:36px">5</span>
-        <p style="font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.75;color:var(--paper)">The author is prepared, at a moment's notice, to debate anyone who can demonstrate an ability to discuss it — and find any gap in the argument.</p>
       </div>
     </div>
   </div>
@@ -511,6 +549,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         <p>He came to the arguments through addiction and a jail bunk and a molecular biology book he did not ask for. He spent years making the scientific case for a designer in recovery rooms and church settings while refusing to call himself a Christian. He was not looking for faith. He was looking for a crack in the argument he could not find.</p>
         <p>He never found it. <em>Under Every Rock Turned</em> is the record of what he found instead.</p>
         <p>He has no platform. No prior publications. No academic credentials. What he has is a story that made James Tour — a man with over eight hundred publications who says he does not write endorsements for people outside his academic circle — read an early version of this work in a single sitting and respond before morning, with permission to quote him. The book has grown substantially since.</p>
+        <p>He is prepared, at a moment's notice, to debate anyone who can demonstrate an ability to discuss it — and find any gap in the argument.</p>
       </div>
     </div>
     <div class="about-aside">
