@@ -24,7 +24,11 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 100px;text-align:center;background:radial-gradient(ellipse 90% 50% at 50% -10%,rgba(139,58,42,.15) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 110%,rgba(201,168,76,.07) 0%,transparent 60%),var(--ink)}
-.hero-line{width:1px;height:64px;background:linear-gradient(to bottom,transparent,var(--gold));margin:0 auto 44px}
+.hero-line{width:1px;height:64px;margin:0 auto 44px;background:linear-gradient(to bottom,transparent,var(--gold));animation:linebreathe 8s ease-in-out infinite}
+@keyframes linebreathe{
+  0%,100%{opacity:.55;height:64px}
+  50%{opacity:1;height:72px}
+}
 .hero-eyebrow{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,11vw,112px);font-weight:900;font-style:italic;line-height:.92;letter-spacing:-.02em;color:var(--paper);margin-bottom:28px}
 .hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.5vw,22px);font-style:italic;color:var(--muted);letter-spacing:.04em;max-width:560px;margin:0 auto 36px;line-height:1.5}
@@ -131,25 +135,28 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .chatbot{padding:100px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03)}
 .chatbot-inner{max-width:760px;margin:0 auto}
 .chatbot-intro{font-size:15px;line-height:1.9;color:var(--aged);max-width:640px;margin-bottom:48px}
-.chat-shell{background:#0a0806;border:1px solid rgba(201,168,76,.15);display:flex;flex-direction:column;height:520px}
-.chat-header{padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:12px}
-.chat-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.7}
-.chat-header-text{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.chat-messages{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:16px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.08) transparent}
-.chat-messages::-webkit-scrollbar{width:4px}
-.chat-messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
-.msg{max-width:82%;display:flex;flex-direction:column;gap:4px}
-.msg.user{align-self:flex-end;align-items:flex-end}
+.chat-shell{background:#0f0e0c;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:540px;max-width:480px;margin:0 auto;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+.chat-header{padding:12px 18px;background:#1a1712;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.chat-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(139,58,42,.9),rgba(201,168,76,.5));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--paper);flex-shrink:0}
+.chat-contact{display:flex;flex-direction:column}
+.chat-contact-name{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.04em;color:var(--paper)}
+.chat-contact-sub{font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--muted);letter-spacing:.08em}
+.chat-dot{width:7px;height:7px;border-radius:50%;background:#4cd964;margin-left:auto;opacity:.8}
+.chat-messages{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.06) transparent}
+.chat-messages::-webkit-scrollbar{width:3px}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,.06);border-radius:2px}
+.msg{display:flex;flex-direction:column;max-width:78%}
 .msg.bot{align-self:flex-start;align-items:flex-start}
-.msg-bubble{padding:14px 18px;font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.75;color:var(--aged)}
-.msg.user .msg-bubble{background:rgba(139,58,42,.25);border:1px solid rgba(139,58,42,.3)}
-.msg.bot .msg-bubble{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.12)}
-.msg-bubble.typing{color:var(--muted);font-style:italic}
-.chat-input-row{border-top:1px solid rgba(255,255,255,.05);display:flex}
-.chat-input{flex:1;background:transparent;border:none;outline:none;padding:18px 20px;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--paper);caret-color:var(--gold)}
+.msg.user{align-self:flex-end;align-items:flex-end}
+.msg-bubble{padding:10px 15px;font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.65;border-radius:18px}
+.msg.bot .msg-bubble{background:#272218;border-bottom-left-radius:4px;color:var(--aged)}
+.msg.user .msg-bubble{background:rgba(139,58,42,.6);border-bottom-right-radius:4px;color:var(--paper)}
+.msg-bubble.typing{color:var(--muted);font-style:italic;font-size:14px}
+.chat-input-row{padding:10px 12px;background:#1a1712;display:flex;align-items:center;gap:8px;border-top:1px solid rgba(255,255,255,.05)}
+.chat-input{flex:1;background:#272218;border:none;outline:none;padding:11px 16px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--paper);caret-color:var(--gold);border-radius:22px}
 .chat-input::placeholder{color:rgba(107,96,82,.5)}
-.chat-send{background:none;border:none;border-left:1px solid rgba(255,255,255,.05);padding:0 24px;color:var(--gold);cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:background .2s}
-.chat-send:hover{background:rgba(201,168,76,.07)}
+.chat-send{background:rgba(201,168,76,.9);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .2s;font-size:15px;font-weight:700;color:#0b0907;line-height:1}
+.chat-send:hover{background:var(--gold)}
 .chat-send:disabled{opacity:.35;cursor:default}
 .chat-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
 .suggestion{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--faint);border:1px solid rgba(255,255,255,.08);padding:8px 14px;cursor:pointer;background:none;transition:border-color .2s,color .2s;text-align:left;line-height:1.4}
@@ -167,12 +174,16 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="position:relative;overflow:hidden">
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%">
   <div class="hero-line"></div>
   <p class="hero-eyebrow">The Truth That Is Weaved Into the Cosmos</p>
   <h1 class="hero-title">Under Every<br>Rock Turned</h1>
   <p class="hero-subtitle">A logically coherent explanation of Christian faith, from first principles, found by the last person wanting to find it.</p>
   <p class="hero-by">Jonathan Stephens</p>
+  <div style="margin-top:36px;margin-bottom:8px">
+    <a href="mailto:jon@stephensadvanced.com" style="display:inline-block;background:transparent;border:1px solid rgba(201,168,76,.5);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .3s">Request the Manuscript</a>
+  </div>
   <div class="hero-stats">
     <div class="stat">
       <p class="stat-n">60K</p>
@@ -188,6 +199,12 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
       <p class="stat-n">#1</p>
       <p class="stat-l">Originality &middot; Authenticity</p>
     </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <p class="stat-n" style="font-style:normal;letter-spacing:-.02em">42?</p>
+      <p class="stat-l">What is the ultimate question</p>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -195,7 +212,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <section class="endorsement">
   <div class="endorsement-inner">
     <span class="endorse-tag">Endorsement &nbsp;&middot;&nbsp; Dr. James Tour &nbsp;&middot;&nbsp; Rice University</span>
-    <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,22px);font-weight:700;color:var(--rust-l);letter-spacing:.04em;margin-bottom:24px;">After reading an early 20,000-word manuscript:</p>
+    <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,22px);font-weight:700;color:var(--rust-l);letter-spacing:.04em;margin-bottom:24px;">Dr. James Tour read an early version of this work in a single sitting and responded before morning — with permission to quote him. The book has grown substantially since.</p>
     <p class="endorse-quote">It is well done. It encouraged me greatly. Indeed it reminds me why I keep doing these calls.</p>
     <p class="endorse-name">Dr. James Tour</p>
     <p class="endorse-cred">T.T. and W.F. Chao Professor of Chemistry &middot; Rice University<br>Among the most cited synthetic chemists in the world</p>
@@ -215,6 +232,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         <p>This book follows that search across twenty years and every discipline I could reach — physics, chemistry, philosophy, history, biology — rock by rock, primary source by primary source, with no destination in mind except wherever the evidence actually led. It led somewhere I wasn't looking for and couldn't argue my way out of.</p>
         <p>The arguments in this book are original. The Ω equation resolves creation, evil, and the cross as a single operation — something no other book in the apologetics canon has done. The philosophical case for the resurrection is built from hostile Roman attestation, not faith. The theodicy was not borrowed from Augustine or Plantinga. It was worked out on a floor in Texas by someone with a specific reason to need it to be true and a longer reason to distrust easy answers.</p>
         <p>The personal story is not decoration. The structure of addiction recovery and the structure of divine self-limitation are the same geometry — recognized from the inside because they had to be lived before they could be understood. That is what makes this book different from every other book in the field. The argument wasn't written. It was found.</p>
+        <p>It is also the book that makes everything Jordan Peterson has been circling finally land in an obviously correct way.</p>
       </div>
     </div>
     <div class="book-aside">
@@ -323,62 +341,62 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
       <div class="topic-box">
         <p class="topic-cat">Cosmology</p>
         <p class="topic-title">Why does anything exist at all?</p>
-        <p class="topic-desc">Every other book in the apologetics canon answers this with creation from nothing. This book answers it differently: God did not reach into a void and pull out a universe. God withdrew from a portion of himself, and what filled the space was reality. Creation by subtraction. The equation is Ω − Ω′ = ∃. That is not a metaphor. It resolves the ex nihilo problem that has been sitting open since Aquinas.</p>
+        <p class="topic-desc">Every major apologetics book answers this with creation from nothing. This book answers it with a different operation entirely — one that also resolves theodicy and explains the cross as the same single act. The equation has a name.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Theology</p>
         <p class="topic-title">Why did the cross have to happen that way?</p>
-        <p class="topic-desc">No theologian in the popular apologetics canon has answered this. They say the cross was necessary. They do not say why an omnipotent God could not have chosen a different method. This book does. The cross is not an event that happened two thousand years ago in Jerusalem. It is the pre-temporal act — the moment the full set chose to become less than full — made visible in history. The wounds are the shape of the door.</p>
+        <p class="topic-desc">Theologians say the cross was necessary. None of them say why an omnipotent God could not have simply forgiven humanity with a word. This book answers that. The answer changes what the cross actually is.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Philosophy</p>
         <p class="topic-title">Is God truly free if he cannot sin?</p>
-        <p class="topic-desc">Classical theism says God cannot sin because sin contradicts his nature. This book points out the word they used: cannot. There is a difference between does not and cannot. Does not means he chooses not to. Cannot means the option was never on the table. The moment you say cannot, you have walked back omnipotence to protect goodness and you didn't notice you did it. This crack has been in the wall since Aquinas. No one in the field has looked directly at it until now.</p>
+        <p class="topic-desc">Classical theism uses a specific word here: cannot. There is a difference between does not and cannot that no one in the field has looked at directly. That difference has been sitting in the wall since Aquinas. This book looks at it.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Theodicy</p>
         <p class="topic-title">Where did evil come from if God is perfectly good?</p>
-        <p class="topic-desc">Two options have been on the table for centuries: God created evil, which makes him its author — or evil exists outside God's creation, which requires two ultimate beings. This book puts a third option on the table that neither side has proposed: God did not create evil. He separated from it. The devil is not a creature God wound up and aimed at humanity. He is the severed potential of divine self-limitation — the other side of the same original choice. Same operation that explains creation. Same operation that explains the cross.</p>
+        <p class="topic-desc">Two options have been on the table for centuries. Both have fatal problems. This book puts a third option on the table — one that resolves the problem without creating a new one, using the same operation that explains creation and the cross.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Physics</p>
         <p class="topic-title">What is the Logos?</p>
-        <p class="topic-desc">Emergence Theory — a framework in theoretical physics — proposes that consciousness is built into the irreducible pixel of physical reality at the Planck scale. Not emergent from complexity. Fundamental to matter itself. The researchers call it a viewing vector. John called it the Logos. The Stoics had been arguing about it for five centuries before John wrote the first line of his gospel. Two lines of reasoning, centuries apart, arriving at the same word. This book traces both and shows they converge.</p>
+        <p class="topic-desc">Theoretical physicists and first-century theologians arrived at the same word through entirely separate lines of reasoning. This book traces both and shows where they converge — and what that convergence means.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Philosophy</p>
         <p class="topic-title">Is atheism actually the absence of faith?</p>
-        <p class="topic-desc">Every gap in the naturalistic account requires a prior commitment that an explanation will eventually be found. Abiogenesis: unsolved — but it will be solved. The Cambrian explosion: unexplained — but it will be explained. This is not a conclusion drawn from evidence. It is faith. The author spent twenty years holding it and named it: the doubt of the gaps. The argument is not that naturalism is wrong. It is that naturalism is not neutral. It has a faith requirement baked in — and that requirement grows as the gaps do.</p>
+        <p class="topic-desc">The author held this position for twenty years. He eventually found a name for what he was actually doing. It was not the absence of faith. It was a different kind — one with a specific structural problem that grows over time.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">History</p>
         <p class="topic-title">Why did a vast multitude die rather than recant?</p>
-        <p class="topic-desc">Tacitus — hostile Roman historian, no motive to exaggerate — recorded a vast multitude executed under Nero who could have stopped the torture with a single sentence of denial. Not the twelve disciples. Ordinary families. Parents watching children die. Not one recanted. People die for things they believe are true. No one — no one — dies for something they personally witnessed and know to be false. That is not a theological claim. That is an observation about human nature, and it is one of the most reliable ones in history.</p>
+        <p class="topic-desc">A hostile Roman historian — no motive to exaggerate — recorded families watching each other tortured to death. All they had to do was say three words. Not one of them did. This is not a theological claim. It is a claim about human nature.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Biology</p>
         <p class="topic-title">How did the first living cell assemble itself?</p>
-        <p class="topic-desc">No naturalistic process has produced a self-replicating molecule from raw chemistry. The probability of the simplest functional protein fold arising by chance is 1 in 10⁷⁷ — per Douglas Axe's peer-reviewed work in the Journal of Molecular Biology. Dr. James Tour, one of the world's most cited synthetic chemists, says publicly: no one knows how life began. No one. The materialist explanation, followed to its logical end, is that a rock got wet and eventually wrote Shakespeare.</p>
+        <p class="topic-desc">One of the world's most cited synthetic chemists says publicly that no one knows. Not that it's unsolved — that no one knows where to begin. The honest version of this question is more devastating than most people realize.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Consciousness</p>
         <p class="topic-title">Why can't physics explain why anything feels like something?</p>
-        <p class="topic-desc">Physics can describe every functional process in the brain down to the last synapse. What it cannot explain is why those processes are accompanied by experience. Why the lights are on inside. Why there is something it is like to be you. This is not a gap that will close with more data. It is a genuine philosophical chasm. If consciousness cannot be derived from unconscious matter — and centuries of effort have not done it — then consciousness may be fundamental to reality. Which means the designer had to be conscious. Which means the designer is personal.</p>
+        <p class="topic-desc">Every functional process in the brain can be described completely. What cannot be explained is why those processes are accompanied by experience at all. This is not a gap that more data will close. The implications of that are significant.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">History</p>
         <p class="topic-title">Why does the resurrection hold up as history?</p>
-        <p class="topic-desc">The creed in 1 Corinthians 15 is dated by mainstream secular historians to within three to five years of the crucifixion. That is not legend — legend takes generations. Five hundred witnesses are named while most of them were still alive to be questioned. The earliest critics never claimed the tomb was occupied — they claimed the disciples stole the body, which is an admission the tomb was empty. The disciples were cowards who scattered. Something happened in real time that reversed the direction of their entire lives overnight. Every path leads to the same place.</p>
+        <p class="topic-desc">The earliest creed is dated by secular historians to within years of the event. The earliest critics never disputed the tomb was empty. The men who ran are the same men who died rather than deny it. Each path leads to the same place.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Suffering</p>
         <p class="topic-title">How do suffering and a loving God coexist?</p>
-        <p class="topic-desc">The standard answer is that suffering builds character. This book goes further: suffering produces something that comfort structurally cannot. It forges people who know good from evil not as abstractions but as lived realities burned into their bones. God is not building a paradise of untested souls who showed up because the brochure looked nice. And the one who designed the forge did not watch from a distance. He entered it. The cross is not a symbol of victory. It is an instrument of execution. It is the thing that kills you so something better can live in your place.</p>
+        <p class="topic-desc">The standard answer is that suffering builds character. This book goes further — and argues that suffering produces something comfort is structurally incapable of producing. The answer requires understanding what God is actually building.</p>
       </div>
       <div class="topic-box">
         <p class="topic-cat">Theology</p>
         <p class="topic-title">Why do people outside the church sometimes look more like Christ than people inside it?</p>
-        <p class="topic-desc">If salvation is a function of repentance — a turning of the heart toward God — then the equation does not require correct theology. It requires direction. A Buddhist monk genuinely reaching toward ultimate goodness, a Muslim prostrating in sincere submission, a man with no religion at all who recognizes something true and moves toward it — the equation resolves this. What saves is not the map. It is the turning. This is not universalism. It is a framework precise enough to explain why some people inside the church are lost and some people outside it are not.</p>
+        <p class="topic-desc">This is the question the church does not like to answer out loud. This book answers it — with a framework precise enough to explain both why some people inside the church are lost and why some people outside it are not.</p>
       </div>
     </div>
   </div>
@@ -444,22 +462,26 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
       <span class="label" style="margin-top:48px;display:block">Open Invitation</span>
       <h2 class="section-title" style="margin-bottom:16px">Challenge the Argument</h2>
       <p class="chatbot-intro">The author extends an open invitation to debate the arguments in this book — to anyone, at any time, on any platform. Philosopher, scientist, theologian, skeptic. The case has been tested specifically to break it. Bring the hardest version of your objection.</p>
-      <p class="chatbot-intro">This AI is here because readers have questions before they open the book, in the middle of it, and after they finish. Ask what you actually want to ask. Challenge any argument directly. If it doesn't hold up, it will say so.</p>
-      <p class="chatbot-intro" style="margin-top:-20px; font-size:13px; letter-spacing:.05em; text-transform:uppercase; color:var(--gold); opacity:.7;">Type a question. Type an objection. Type whatever is actually on your mind.</p>
+      <p class="chatbot-intro">You get two responses. Make them count — bring your deepest objection, not your first one. After two, the rest of the argument is in the book.</p>
+      <p class="chatbot-intro" style="margin-top:-20px; font-size:13px; letter-spacing:.05em; text-transform:uppercase; color:var(--gold); opacity:.7;">Two exchanges. Then the book.</p>
 
       <div class="chat-shell">
         <div class="chat-header">
+          <div class="chat-avatar">UR</div>
+          <div class="chat-contact">
+            <span class="chat-contact-name">Under Every Rock Turned</span>
+            <span class="chat-contact-sub">the book · open challenge</span>
+          </div>
           <div class="chat-dot"></div>
-          <span class="chat-header-text">Under Every Rock Turned &nbsp;&middot;&nbsp; Ask the book anything</span>
         </div>
         <div class="chat-messages" id="chatMessages">
           <div class="msg bot">
-            <div class="msg-bubble">Challenge the argument. Any argument, any direction. If it breaks, I'll say so.</div>
+            <div class="msg-bubble">Two exchanges. Bring your best. If the argument breaks, I'll say so.</div>
           </div>
         </div>
         <div class="chat-input-row">
-          <input class="chat-input" id="chatInput" type="text" placeholder="Ask a question or challenge the argument..." autocomplete="off" onkeydown="if(event.key==='Enter')sendMessage()">
-          <button class="chat-send" id="chatSend" onclick="sendMessage()">Ask &rarr;</button>
+          <input class="chat-input" id="chatInput" type="text" placeholder="Type your challenge..." autocomplete="off" onkeydown="if(event.key==='Enter')sendMessage()">
+          <button class="chat-send" id="chatSend" onclick="sendMessage()">&#8593;</button>
         </div>
       </div>
     </div>
@@ -485,8 +507,10 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <div>
       <span class="label">The Author</span>
       <div class="about-body">
-        <p>Jonathan Stephens is a Dallas&ndash;Fort Worth contractor and writer. He spent years making the intellectual case for God in recovery rooms and church settings before he would call himself a Christian. <em>Under Every Rock Turned</em> is the record of why that changed.</p>
-        <p>He has no platform. No social media following. No prior publications. What he has is a story that made James Tour &mdash; a man who says he never writes endorsements for people outside his academic circle &mdash; read an early draft and write back before morning.</p>
+        <p>Jonathan Stephens is not a theologian. He is not a pastor, a professor, or a professional apologist. He is a Dallas&ndash;Fort Worth contractor who spent twenty years as a committed atheist — building a case against God in his own head with enough rigor that when it finally collapsed, the collapse was total.</p>
+        <p>He came to the arguments through addiction and a jail bunk and a molecular biology book he did not ask for. He spent years making the scientific case for a designer in recovery rooms and church settings while refusing to call himself a Christian. He was not looking for faith. He was looking for a crack in the argument he could not find.</p>
+        <p>He never found it. <em>Under Every Rock Turned</em> is the record of what he found instead.</p>
+        <p>He has no platform. No prior publications. No academic credentials. What he has is a story that made James Tour — a man with over eight hundred publications who says he does not write endorsements for people outside his academic circle — read an early version of this work in a single sitting and respond before morning, with permission to quote him. The book has grown substantially since.</p>
       </div>
     </div>
     <div class="about-aside">
@@ -529,6 +553,7 @@ function toggleChapter(id) {
 }
 
 const messages = [];
+let botResponseCount = 0;
 
 function addMessage(role, text) {
   const box = document.getElementById('chatMessages');
@@ -546,6 +571,21 @@ function addMessage(role, text) {
 function setLoading(on) {
   document.getElementById('chatSend').disabled = on;
   document.getElementById('chatInput').disabled = on;
+}
+
+function lockChat() {
+  document.getElementById('chatSend').disabled = true;
+  document.getElementById('chatInput').disabled = true;
+  document.getElementById('chatInput').placeholder = 'Request the manuscript to continue.';
+  const box = document.getElementById('chatMessages');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg bot';
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = "That's two. The rest of the argument is in the book — and it goes much deeper than this. <a href='mailto:jon@stephensadvanced.com' style='color:var(--gold);text-decoration:none'>Request the manuscript.</a>";
+  wrap.appendChild(bubble);
+  box.appendChild(wrap);
+  box.scrollTop = box.scrollHeight;
 }
 
 async function sendMessage() {
@@ -572,6 +612,12 @@ async function sendMessage() {
     typingBubble.classList.remove('typing');
     typingBubble.textContent = reply;
     messages.push({ role: 'assistant', content: reply });
+    botResponseCount++;
+    if (botResponseCount >= 2) {
+      setLoading(false);
+      lockChat();
+      return;
+    }
   } catch (e) {
     typingBubble.classList.remove('typing');
     typingBubble.textContent = 'Something went wrong. Try again.';
