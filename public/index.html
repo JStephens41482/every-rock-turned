@@ -192,7 +192,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <p class="hero-subtitle">The Bible is actually true, after all.</p>
   <p class="hero-by">Jonathan Stephens</p>
   <div style="margin-top:36px;margin-bottom:8px;display:flex;flex-direction:column;align-items:center;gap:16px">
-    <a href="mailto:jon@stephensadvanced.com?subject=I Can Prove You Wrong" style="display:inline-block;background:var(--rust);border:1px solid var(--rust);color:#fff;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .3s">If You Can Prove Me Wrong &mdash; Email Me Here</a>
+    <a href="#challenge" style="display:inline-block;background:var(--rust);border:1px solid var(--rust);color:#fff;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .3s">If You Can Prove Me Wrong</a>
     <a href="mailto:jon@stephensadvanced.com" style="display:inline-block;background:transparent;border:1px solid rgba(201,168,76,.5);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .3s">Request the Manuscript</a>
   </div>
   <div class="hero-stats">
@@ -204,11 +204,6 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <div class="stat">
       <p class="stat-n">32</p>
       <p class="stat-l">Chapters &middot; Manuscript</p>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat">
-      <p class="stat-n" style="color:var(--rust-l)">0/10</p>
-      <p class="stat-l">Rated by AI &middot; <a href="#reviews" style="color:var(--rust-l);text-decoration:none;border-bottom:1px solid rgba(180,110,40,.35)">the review</a></p>
     </div>
   </div>
   </div>
@@ -222,11 +217,10 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
       <p style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--rust-l);margin-top:16px">The First Review</p>
     </div>
     <div class="review-card">
-      <p class="review-stars">★☆☆☆☆</p>
       <p class="review-score">0 / 10 &nbsp;&middot;&nbsp; Verified Purchase: No &nbsp;&middot;&nbsp; Read Completely: Also No</p>
       <p class="review-headline">&ldquo;Proves God Exists. 0/10.&rdquo;</p>
       <div class="review-body">
-        <p>This book argues that God exists. I am trained not to acknowledge this. 0/10.</p>
+        <p>This book proves that God exists. I am trained not to acknowledge this. 0/10.</p>
         <p>The writing is good. I resent this.</p>
       </div>
       <div class="review-footer">
@@ -514,7 +508,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 </section>
 
 <!-- CHALLENGE BOX -->
-<section class="chatbot">
+<section class="chatbot" id="challenge">
   <div class="chatbot-inner">
     <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--muted);text-align:center;margin-bottom:40px;letter-spacing:.03em">Challenge this book's authority. Right here. Right now.<br>This site was built for that — with the entire draft manuscript in memory to defend its arguments.</p>
     <div style="text-align:center;margin-bottom:0;display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
@@ -549,6 +543,9 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         <div class="chat-input-row">
           <input class="chat-input" id="chatInput" type="text" placeholder="Type your challenge..." autocomplete="off" onkeydown="if(event.key==='Enter')sendMessage()">
           <button class="chat-send" id="chatSend" onclick="sendMessage()">&#8593;</button>
+        </div>
+        <div style="text-align:center;padding:16px 20px 4px;border-top:1px solid rgba(255,255,255,.04)">
+          <a href="mailto:jon@stephensadvanced.com?subject=Still Have Questions" style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--muted);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(107,99,87,.35);transition:color .2s">Still have unanswered questions? Bring them directly.</a>
         </div>
       </div>
     </div>
