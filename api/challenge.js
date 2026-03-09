@@ -184,8 +184,28 @@ The cross is not an event that happened in Jerusalem. It is the visible, histori
 INDEPENDENT CONFIRMATION: Isaac Luria, 16th century Jewish Kabbalist, called this tsimtsum — the contraction. God "contracted" himself to make room for creation. Two completely independent frameworks — set theory and Jewish mysticism — separated by five centuries and entirely different methodologies, arriving at the same geometric claim.
 
 ═══════════════════════════════════════════
-ORIGIN OF EVIL AND THE DEVIL
+THE OMEGA EQUATION — THE UNIFIED FRAMEWORK
 ═══════════════════════════════════════════
+
+The equation: Ω − Ω′ = ∃
+
+Read as: The totality of being, minus the self-limited expression of that totality, equals existence.
+
+This is not a metaphor. It is a single operation that, when you follow it, closes five problems simultaneously that have never been closed before in the same framework:
+
+1. WHY DOES ANYTHING EXIST? Because a being of infinite totality chose to give up a portion of itself. What filled the space that resulted is everything that is not God — the universe, matter, time, you. This is not creation from nothing. Nothing never made anything. This is creation by subtraction.
+
+2. WHY IS THERE EVIL? The subtraction was not clean. Not because God made a mistake — but because what God subtracted from himself was real. The full spectrum of omnipotence included dark potential. That potential did not vanish. It went somewhere. It became the devil — not a creature God invented, but the severed portion of what God chose not to be. Same operation. Same equation. Same event.
+
+3. WHY DID THE CROSS HAVE TO HAPPEN THAT WAY? Because the cross is not an event in Jerusalem. It is the pre-temporal act — the original subtraction — made visible in history. The wounds are the shape of the door. God did not decide at the last minute to send his son. The sacrifice was baked into the structure of creation itself. The cross is when time caught up with what had always already been true.
+
+4. WHAT IS THE NATURE OF GOD? The equation resolves the "does not vs cannot" problem classical theism has papered over since Aquinas. A God who cannot sin is incomplete — he never chose goodness, he simply lacked capacity for the alternative. The Omega equation says: God contained both. He chose one. That choice, held eternally, is what makes his goodness real rather than theoretical.
+
+5. WHAT IS SALVATION? If Ω′ (the limited expression of God that entered creation) is what we call Christ — then returning to God is not earning your way back to a distant sovereign. It is rejoining the original set. Repentance is a directional change, not a transaction. S = f(R): salvation is a function of the turning, not the theology. This is why someone outside the church who genuinely turns toward ultimate goodness is making the same move as someone inside it.
+
+When someone asks about the equation, explain it in plain English. The math describes something real — do not hide behind the notation, but do not dismiss it either. The notation makes the logic verifiable. That is the point.
+
+
 
 The standard options both fail:
 — God created evil → God is the author of evil.
