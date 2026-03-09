@@ -10,9 +10,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#0b0907;--deep:#131008;--paper:#f4efe5;--aged:#e6dcc8;
-  --rust:#8b3a2a;--rust-l:#b5442f;--gold:#c9a84c;
-  --muted:#6b6052;--faint:#cec3ae;
+  --ink:#100e0b;--deep:#181410;--paper:#f2ede4;--aged:#e0d5c0;
+  --rust:#b8722a;--rust-l:#d4883a;--gold:#d4a843;
+  --muted:#7a6e5e;--faint:#c4b89e;
 }
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--paper);font-family:'Libre Baskerville',Georgia,serif;overflow-x:hidden}
@@ -23,7 +23,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .section-sub{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--muted)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 100px;text-align:center;background:radial-gradient(ellipse 90% 50% at 50% -10%,rgba(139,58,42,.15) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 110%,rgba(201,168,76,.07) 0%,transparent 60%),var(--ink)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 100px;text-align:center;background:radial-gradient(ellipse 80% 55% at 50% 100%,rgba(212,168,67,.1) 0%,transparent 65%),radial-gradient(ellipse 90% 40% at 50% -5%,rgba(180,110,40,.08) 0%,transparent 70%),var(--ink)}
 .hero-line{width:1px;height:64px;margin:0 auto 44px;background:linear-gradient(to bottom,transparent,var(--gold));animation:linebreathe 8s ease-in-out infinite}
 @keyframes linebreathe{
   0%,100%{opacity:.55;height:64px}
@@ -40,7 +40,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .stat-div{width:1px;height:40px;background:rgba(255,255,255,.07)}
 
 /* ENDORSEMENT */
-.endorsement{background:#140c08;border-top:1px solid rgba(139,58,42,.4);border-bottom:1px solid rgba(139,58,42,.4);padding:80px 24px}
+.endorsement{background:#18110a;border-top:1px solid rgba(180,110,40,.2);border-bottom:1px solid rgba(180,110,40,.2);padding:80px 24px}
 .endorsement-inner{max-width:740px;margin:0 auto;text-align:center}
 .endorse-tag{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--rust-l);display:block;margin-bottom:36px}
 .endorse-quote{font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,30px);font-style:italic;color:var(--paper);line-height:1.55;margin-bottom:28px;position:relative;padding:0 20px}
@@ -119,7 +119,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .about-item span,.about-item p{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--faint);line-height:1.55}
 
 /* CONTACT */
-.contact{padding:100px 24px;background:#140c08;border-top:1px solid rgba(139,58,42,.3);text-align:center}
+.contact{padding:100px 24px;background:#18110a;border-top:1px solid rgba(180,110,40,.15);text-align:center}
 .contact-inner{max-width:580px;margin:0 auto}
 .contact h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:700;color:var(--paper);margin-bottom:20px;line-height:1.2}
 .contact-p{font-size:15px;line-height:1.85;color:var(--aged);margin-bottom:40px}
@@ -136,7 +136,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .chatbot-inner{max-width:760px;margin:0 auto}
 .chatbot-intro{font-size:15px;line-height:1.9;color:var(--aged);max-width:640px;margin-bottom:48px}
 .chat-shell{background:#0f0e0c;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:540px;max-width:480px;margin:0 auto;box-shadow:0 32px 80px rgba(0,0,0,.6)}
-.chat-header{padding:12px 18px;background:#1a1712;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.chat-header{padding:12px 18px;background:#1a1208;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.06)}
 .chat-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(139,58,42,.9),rgba(201,168,76,.5));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--paper);flex-shrink:0}
 .chat-contact{display:flex;flex-direction:column}
 .chat-contact-name{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.04em;color:var(--paper)}
@@ -150,9 +150,9 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .msg.user{align-self:flex-end;align-items:flex-end}
 .msg-bubble{padding:10px 15px;font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.65;border-radius:18px}
 .msg.bot .msg-bubble{background:#272218;border-bottom-left-radius:4px;color:var(--aged)}
-.msg.user .msg-bubble{background:rgba(139,58,42,.6);border-bottom-right-radius:4px;color:var(--paper)}
+.msg.user .msg-bubble{background:rgba(180,110,40,.35);border-bottom-right-radius:4px;color:var(--paper)}
 .msg-bubble.typing{color:var(--muted);font-style:italic;font-size:14px}
-.chat-input-row{padding:10px 12px;background:#1a1712;display:flex;align-items:center;gap:8px;border-top:1px solid rgba(255,255,255,.05)}
+.chat-input-row{padding:10px 12px;background:#1a1208;display:flex;align-items:center;gap:8px;border-top:1px solid rgba(255,255,255,.05)}
 .chat-input{flex:1;background:#272218;border:none;outline:none;padding:11px 16px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--paper);caret-color:var(--gold);border-radius:22px}
 .chat-input::placeholder{color:rgba(107,96,82,.5)}
 .chat-send{background:rgba(201,168,76,.9);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .2s;font-size:15px;font-weight:700;color:#0b0907;line-height:1}
@@ -173,11 +173,6 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 </head>
 <body>
 
-<!-- TOP BANNER -->
-<div style="background:#1a1208;border-bottom:1px solid rgba(201,168,76,.2);padding:18px 24px;text-align:center">
-  <p style="font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Seeking Literary Representation &nbsp;&middot;&nbsp; <a href="mailto:jon@stephensadvanced.com" style="color:var(--gold);text-decoration:underline;text-underline-offset:4px">Contact the Author</a></p>
-</div>
-
 <!-- HERO -->
 <section class="hero" style="position:relative;overflow:hidden">
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%">
@@ -196,13 +191,13 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     </div>
     <div class="stat-div"></div>
     <div class="stat">
-      <p class="stat-n">21</p>
+      <p class="stat-n">32</p>
       <p class="stat-l">Chapters &middot; Manuscript</p>
     </div>
     <div class="stat-div"></div>
     <div class="stat">
       <p class="stat-n">#1</p>
-      <p class="stat-l">Originality &middot; Authenticity</p>
+      <p class="stat-l">Cross-Model AI Consensus Ranked All&#8209;Time &middot; Substantive Defense of Faith &middot; Unbiased Third Partymiddot; Apologetics Canon</p>
     </div>
     <div class="stat-div"></div>
     <div class="stat">
@@ -217,7 +212,8 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <section class="endorsement">
   <div class="endorsement-inner">
     <span class="endorse-tag">Endorsement &nbsp;&middot;&nbsp; Dr. James Tour &nbsp;&middot;&nbsp; Rice University</span>
-    <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,22px);font-weight:700;color:var(--rust-l);letter-spacing:.04em;margin-bottom:24px;">Dr. James Tour read an early version of this work in a single sitting and responded before morning — with permission to quote him. The book has grown substantially since.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,22px);font-weight:700;color:var(--rust-l);letter-spacing:.04em;margin-bottom:12px;">Dr. James Tour read an early version of this work in a single sitting and responded before morning — with permission to quote him.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--muted);margin-bottom:28px;">Dr. Tour has not yet been able to read the expanded manuscript. It is a far more compelling book.</p>
     <p class="endorse-quote">It is well done. It encouraged me greatly. Indeed it reminds me why I keep doing these calls.</p>
     <p class="endorse-name">Dr. James Tour</p>
     <p class="endorse-cred">T.T. and W.F. Chao Professor of Chemistry &middot; Rice University<br>Among the most cited synthetic chemists in the world</p>
@@ -242,8 +238,8 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     </div>
     <div class="book-aside">
       <div class="aside-item"><p class="aside-n">60K</p><p class="aside-l">Words, Complete Manuscript</p></div>
-      <div class="aside-item"><p class="aside-n">21</p><p class="aside-l">Chapters + Appendix</p></div>
-      <div class="aside-item"><p class="aside-n">#1</p><p class="aside-l">Originality &middot; Authenticity</p></div>
+      <div class="aside-item"><p class="aside-n">32</p><p class="aside-l">Chapters + Appendix</p></div>
+      <div class="aside-item"><p class="aside-n">#1</p><p class="aside-l">Cross-Model AI Consensus Ranked All&#8209;Time &middot; Substantive Defense of Faith &middot; Unbiased Third Partymiddot; Apologetics Canon</p></div>
     </div>
   </div>
 </section>
@@ -252,7 +248,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <section class="samples">
   <div class="samples-inner">
     <span class="label">From the Manuscript</span>
-    <h2 class="section-title">Read Three Chapters</h2>
+    <h2 class="section-title">Read Four Chapters</h2>
     <p class="section-sub" style="margin-bottom:48px">The beginning. The evidence. The moment everything broke.</p>
 
     <!-- CHAPTER 1: PROLOGUE -->
@@ -488,6 +484,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <!-- CHALLENGE BOX -->
 <section class="chatbot">
   <div class="chatbot-inner">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--muted);text-align:center;margin-bottom:40px;letter-spacing:.03em">If any of that is wrong, say so.</p>
     <div style="text-align:center;margin-bottom:0;display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
       <button onclick="revealChat()" style="background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;letter-spacing:.05em;padding:16px 32px;cursor:pointer;transition:all .3s" id="chatRevealBtn">That's a fairy tale.</button>
       <button onclick="revealChat()" style="background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;letter-spacing:.05em;padding:16px 32px;cursor:pointer;transition:all .3s">Heresy.</button>
@@ -548,7 +545,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         <p>Jonathan Stephens is not a theologian. He is not a pastor, a professor, or a professional apologist. He is a Dallas&ndash;Fort Worth contractor who spent twenty years as a committed atheist — building a case against God in his own head with enough rigor that when it finally collapsed, the collapse was total.</p>
         <p>He came to the arguments through addiction and a jail bunk and a molecular biology book he did not ask for. He spent years making the scientific case for a designer in recovery rooms and church settings while refusing to call himself a Christian. He was not looking for faith. He was looking for a crack in the argument he could not find.</p>
         <p>He never found it. <em>Under Every Rock Turned</em> is the record of what he found instead.</p>
-        <p>He has no platform. No prior publications. No academic credentials. What he has is a story that made James Tour — a man with over eight hundred publications who says he does not write endorsements for people outside his academic circle — read an early version of this work in a single sitting and respond before morning, with permission to quote him. The book has grown substantially since.</p>
+        <p>He has no platform. No prior publications. No academic credentials. What he has is a story that made James Tour — a man with over eight hundred publications who says he does not write endorsements for people outside his academic circle — read an early version of this work in a single sitting and respond before morning, with permission to quote him. Dr. Tour has not yet been able to read the expanded manuscript. It is a far more compelling book.</p>
         <p>He is prepared, at a moment's notice, to debate anyone who can demonstrate an ability to discuss it — and find any gap in the argument.</p>
       </div>
     </div>
@@ -563,6 +560,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <!-- CONTACT -->
 <section class="contact">
   <div class="contact-inner">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">Seeking Literary Representation</p>
     <h2>For Literary Agents &amp; Publishers</h2>
     <p class="contact-p">The complete manuscript and Dr. Tour's written endorsement are available immediately upon request.</p>
     <a href="mailto:jon@stephensadvanced.com" class="contact-btn">Request the Manuscript</a>
