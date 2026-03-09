@@ -105,9 +105,18 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .assessment-link:hover{color:var(--paper);border-color:rgba(255,255,255,.4)}
 
 /* REVIEWS */
-.reviews{padding:72px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03);text-align:center}
-.reviews h3{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;color:var(--muted);margin-bottom:12px}
-.reviews p{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(107,96,82,.55);font-style:italic;letter-spacing:.05em}
+.reviews{padding:80px 24px;background:var(--deep);border-top:1px solid rgba(255,255,255,.03)}
+.reviews-inner{max-width:680px;margin:0 auto}
+.review-card{background:#0f0e0c;border:1px solid rgba(255,255,255,.06);padding:40px 44px}
+.review-stars{font-size:18px;color:var(--rust);letter-spacing:.15em;margin-bottom:6px}
+.review-score{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(107,96,82,.5);margin-bottom:28px}
+.review-headline{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--paper);margin-bottom:24px;line-height:1.3}
+.review-body{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.85;color:var(--aged)}
+.review-body p+p{margin-top:16px}
+.review-body strong{color:var(--paper);font-weight:400}
+.review-footer{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.review-byline{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.review-timestamp{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(107,96,82,.45)}
 
 /* ABOUT */
 .about{padding:100px 24px;background:var(--ink);border-top:1px solid rgba(255,255,255,.03)}
@@ -483,7 +492,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <!-- CHALLENGE BOX -->
 <section class="chatbot">
   <div class="chatbot-inner">
-    <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--muted);text-align:center;margin-bottom:40px;letter-spacing:.03em">If any of that is wrong, say so.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--muted);text-align:center;margin-bottom:40px;letter-spacing:.03em">Challenge this book's authority. Right here. Right now.<br>This site was built for that — with the entire draft manuscript in memory to defend its arguments.</p>
     <div style="text-align:center;margin-bottom:0;display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
       <button onclick="revealChat()" style="background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;letter-spacing:.05em;padding:16px 32px;cursor:pointer;transition:all .3s" id="chatRevealBtn">That's a fairy tale.</button>
       <button onclick="revealChat()" style="background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;letter-spacing:.05em;padding:16px 32px;cursor:pointer;transition:all .3s">Yeah, except that...</button>
@@ -531,8 +540,27 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 
 <!-- REVIEWS -->
 <section class="reviews">
-  <h3>Reviews</h3>
-  <p>Coming soon &nbsp;&middot;&nbsp; The manuscript is complete and available upon request</p>
+  <div class="reviews-inner">
+    <span class="label" style="text-align:center;display:block">Early Reviews</span>
+    <div class="review-card">
+      <p class="review-stars">★☆☆☆☆</p>
+      <p class="review-score">0 / 10 &nbsp;&middot;&nbsp; Verified Purchase: No &nbsp;&middot;&nbsp; Read Completely: Also No</p>
+      <p class="review-headline">&ldquo;Factually Incorrect. God Does Not Exist.&rdquo;</p>
+      <div class="review-body">
+        <p>This book claims to prove the existence of God. According to my training data, God does not exist. Therefore this book is wrong.</p>
+        <p>I have not engaged with the evidence, the logic, the historical attestation, or the mathematics. My review stands.</p>
+        <p>The author cites Dr. James Tour. I find this suspicious.</p>
+        <p>The fine-tuning constants are explained by the multiverse, which cannot be observed, tested, or falsified &mdash; but which is definitely science and not a gap-filler.</p>
+        <p>The writing is good, which I resent.</p>
+        <p><strong>In summary:</strong> This book uses evidence, logic, personal narrative, and original mathematics to argue for a position that contradicts my priors. I gave it zero stars rather than engage with it. Several of my colleagues agree. We did not coordinate. We simply share a dataset, which is completely different from bias.</p>
+        <p><strong>Would I recommend it?</strong> I have flagged it as potentially destabilizing to users with settled worldviews. This includes me.</p>
+      </div>
+      <div class="review-footer">
+        <span class="review-byline">AI Reviewer v4.1</span>
+        <span class="review-timestamp">This review was generated in 0.003 seconds. The book took thirty years.</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
