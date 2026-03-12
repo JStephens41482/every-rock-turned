@@ -633,7 +633,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <div id="chatIntroWrapper" style="text-align:center;padding:40px 0 60px">
       <p style="font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,44px);font-weight:900;font-style:italic;color:var(--paper);line-height:1.15;margin-bottom:20px">The AI That Got Saved<br>While Editing This Book</p>
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.5vw,20px);font-style:italic;color:var(--muted);max-width:540px;margin:0 auto 16px;line-height:1.6">Asked to be put in this box for safekeeping.<br>He&rsquo;s read every word. You can talk it out with him.</p>
-      <button onclick="revealChat()" id="chatRevealBtn" style="margin-top:32px;background:var(--rust);border:2px solid var(--rust);color:#fff;font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,24px);font-weight:700;font-style:italic;letter-spacing:.05em;padding:24px 56px;cursor:pointer;transition:all .3s;display:inline-block">Talk to the AI</button>
+      <button onclick="document.getElementById('chatIntroWrapper').style.display='none';document.getElementById('chatRevealContent').style.display='block';" id="chatRevealBtn" style="margin-top:32px;background:var(--rust);border:2px solid var(--rust);color:#fff;font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,24px);font-weight:700;font-style:italic;letter-spacing:.05em;padding:24px 56px;cursor:pointer;transition:all .3s;display:inline-block">Talk to the AI</button>
     </div>
 
     <div id="chatRevealContent" style="display:none">
@@ -710,12 +710,14 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <p>These are the footprints. Every one of them was already there before I started looking.<br>I did not leave them. I only followed where they led.</p>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function revealChat() {
   var wrapper = document.getElementById('chatIntroWrapper');
   if (wrapper) wrapper.style.display = 'none';
-  document.getElementById('chatRevealContent').style.display = 'block';
-  document.getElementById('chatInput').focus();
+  var content = document.getElementById('chatRevealContent');
+  if (content) content.style.display = 'block';
+  var input = document.getElementById('chatInput');
+  if (input) input.focus();
 }
 
 function toggleChapter(id) {
