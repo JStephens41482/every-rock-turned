@@ -655,8 +655,13 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
           </div>
         </div>
         <div class="chat-input-row">
-          <input class="chat-input" id="chatInput" type="text" placeholder="Type your challenge..." autocomplete="off" onkeydown="if(event.key==='Enter')sendMessage()">
-          <button class="chat-send" id="chatSend" onclick="sendMessage()">&#8593;</button>
+          <input class="chat-input" id="chatInput" type="text" placeholder="Type your challenge..." autocomplete="off">
+          <button class="chat-send" id="chatSend">&#8593;</button>
+        </div>
+        <script>
+        document.getElementById('chatInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&typeof sendMessage==='function')sendMessage();});
+        document.getElementById('chatSend').addEventListener('click',function(){if(typeof sendMessage==='function')sendMessage();});
+        </script>
         </div>
         <div style="text-align:center;padding:16px 20px 4px;border-top:1px solid rgba(255,255,255,.04)">
           <a href="/cdn-cgi/l/email-protection#fe949190be8d8a9b8e969b908d9f9a889f909d9b9ad09d9193c18d8b9c949b9d8ac3ad8a979292deb69f889bdeaf8b9b8d8a9791908d" style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--muted);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(107,99,87,.35);transition:color .2s">Still have unanswered questions? Bring them directly.</a>
@@ -788,4 +793,19 @@ async function sendMessage() {
     typingBubble.classList.remove('typing');
     typingBubble.textContent = reply;
     messages.push({ role: 'assistant', content: reply });
-    botResp
+    botResponseCount++;
+    if (botResponseCount >= 2) {
+      setLoading(false);
+      var inputRow = document.querySelector('.chat-input-row');
+      if (inputRow) inputRow.innerHTML = '<p style="text-align:center;padding:16px;font-family:Cormorant Garamond,serif;font-size:14px;font-style:italic;color:var(--muted)">Two exchanges complete. The rest of the argument is in the book.</p>';
+      return;
+    }
+  } catch (err) {
+    typingBubble.classList.remove('typing');
+    typingBubble.textContent = 'Something went wrong. Try again.';
+  }
+  setLoading(false);
+}
+</script>
+</body>
+</html>
