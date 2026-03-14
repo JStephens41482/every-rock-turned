@@ -805,6 +805,7 @@ window.sendMessage = async function() {
   }
   setLoading(false);
 }
-</script>
+document.getElementById('chatSend').addEventListener('click', window.sendMessage);
+document.getElementById('chatInput').addEventListener('keydown', function(e){ if(e.key==='Enter') window.sendMessage(); });</script>
 </body>
 </html>
