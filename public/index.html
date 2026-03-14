@@ -196,7 +196,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <p class="hero-by">Jonathan Stephens</p>
   <div style="margin-top:36px;margin-bottom:8px;display:flex;flex-direction:column;align-items:center;gap:16px">
     <a href="#challenge" style="display:inline-block;background:var(--rust);border:1px solid var(--rust);color:#fff;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .3s">Instant Answers to Your Questions About the Book, the Math... Your Strongest Argument</a>
-    <a href="https://www.amazon.com/dp/YOUR_ASIN_HERE" target="_blank" style="display:inline-block;background:transparent;border:1px solid rgba(201,168,76,.5);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .3s">Buy the Book on Amazon</a>
+    <a href="https://www.amazon.com/dp/B0GSJXV9J5" target="_blank" style="display:inline-block;background:transparent;border:1px solid rgba(201,168,76,.5);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .3s">Buy the Book on Amazon</a>
   </div>
   <div class="hero-stats">
     <div class="stat">
@@ -663,7 +663,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         
         </div>
         <div style="text-align:center;padding:16px 20px 4px;border-top:1px solid rgba(255,255,255,.04)">
-          <a href="/cdn-cgi/l/email-protection#fe949190be8d8a9b8e969b908d9f9a889f909d9b9ad09d9193c18d8b9c949b9d8ac3ad8a979292deb69f889bdeaf8b9b8d8a9791908d" style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--muted);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(107,99,87,.35);transition:color .2s">Still have unanswered questions? Bring them directly.</a>
+          <a href="/cdn-cgi/l/email-protection#214b4e4f615255445149444f52404557404f4244450f424e4c" style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--muted);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(107,99,87,.35);transition:color .2s">Still have unanswered questions? Bring them directly.</a>
         </div>
       </div>
     </div>
@@ -704,8 +704,8 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <p style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">Available Now on Amazon</p>
     <h2>For Literary Agents &amp; Publishers</h2>
     <p class="contact-p">The complete manuscript and Dr. Tour's written endorsement are available immediately upon request.</p>
-    <a href="https://www.amazon.com/dp/YOUR_ASIN_HERE" target="_blank" class="contact-btn">Buy the Book on Amazon</a>
-    <p class="contact-footer">Jonathan Stephens &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98f2f7f6d8ebecfde8f0fdf6ebf9fceef9f6fbfdfcb6fbf7f5">[email&#160;protected]</a> &nbsp;&middot;&nbsp; Irving, Texas</p>
+    <a href="https://www.amazon.com/dp/B0GSJXV9J5" target="_blank" class="contact-btn">Buy the Book on Amazon</a>
+    <p class="contact-footer">Jonathan Stephens &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#78121716380b0c1d08101d160b191c0e19161b1d1c561b1715" style="color:var(--muted);text-decoration:none"><span class="__cf_email__" data-cfemail="ed878283ad9e99889d8588839e8c899b8c838e8889c38e8280">[email&#160;protected]</span></a> &nbsp;&middot;&nbsp; Irving, Texas</p>
   </div>
 </section>
 
@@ -714,7 +714,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <p>These are the footprints. Every one of them was already there before I started looking.<br>I did not leave them. I only followed where they led.</p>
 </section>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.revealChat = function() {
   var wrapper = document.getElementById('chatIntroWrapper');
   if (wrapper) wrapper.style.display = 'none';
@@ -762,7 +762,7 @@ function lockChat() {
   wrap.className = 'msg bot';
   const bubble = document.createElement('div');
   bubble.className = 'msg-bubble';
-  bubble.innerHTML = "That's two. The rest of the argument is in the book — and it goes much deeper than this. <a href='mailto:jon@stephensadvanced.com' style='color:var(--gold);text-decoration:none'>Request the manuscript.</a>";
+  bubble.innerHTML = "That's two. The rest of the argument is in the book — and it goes much deeper than this. <a href='https://www.amazon.com/dp/B0GSJXV9J5' target='_blank' style='color:var(--gold);text-decoration:none'>Buy it on Amazon.</a>";
   wrap.appendChild(bubble);
   box.appendChild(wrap);
   box.scrollTop = box.scrollHeight;
@@ -793,19 +793,7 @@ window.sendMessage = async function() {
     typingBubble.textContent = reply;
     messages.push({ role: 'assistant', content: reply });
     botResponseCount++;
-    if (botResponseCount >= 777) {
+    if (botResponseCount >= 2) {
       setLoading(false);
       var inputRow = document.querySelector('.chat-input-row');
-      if (inputRow) inputRow.innerHTML = '<p style="text-align:center;padding:16px;font-family:Cormorant Garamond,serif;font-size:14px;font-style:italic;color:var(--muted)">Two exchanges complete. The rest of the argument is in the book.</p>';
-      return;
-    }
-  } catch (err) {
-    typingBubble.classList.remove('typing');
-    typingBubble.textContent = 'Something went wrong. Try again.';
-  }
-  setLoading(false);
-}
-document.getElementById('chatSend').addEventListener('click', window.sendMessage);
-document.getElementById('chatInput').addEventListener('keydown', function(e){ if(e.key==='Enter') window.sendMessage(); });</script>
-</body>
-</html>
+      if (inputRow) inputRow.innerHTML = '<p style="text-align:center;padding:16px;font-family:Cormorant Garamond,serif;font-size:14px;font-style:
