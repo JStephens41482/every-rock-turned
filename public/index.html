@@ -658,12 +658,10 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         </div>
         <div class="chat-input-row">
           <input class="chat-input" id="chatInput" type="text" placeholder="Type your challenge..." autocomplete="off">
-          <button class="chat-send" id="chatSend">&#8593;</button>
-        </div>
-        
+          <button class="chat-send" id="chatSend" onclick="sendMessage()">&#8593;</button>
         </div>
         <div style="text-align:center;padding:16px 20px 4px;border-top:1px solid rgba(255,255,255,.04)">
-          <a href="mailto:jonathanestephens@outlook.com" style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--muted);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(107,99,87,.35);transition:color .2s">Still have unanswered questions? Bring them directly.</a>
+          <a href="mailto:jon@stephensadvanced.com" style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--muted);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(107,99,87,.35);transition:color .2s">Still have unanswered questions? Bring them directly.</a>
         </div>
       </div>
     </div>
@@ -795,5 +793,28 @@ window.sendMessage = async function() {
     botResponseCount++;
     if (botResponseCount >= 2) {
       setLoading(false);
-      var inputRow = document.querySelector('.chat-input-row');
-      if (inputRow) inputRow.innerHTML = '<p style="text-align:center;padding:16px;font-family:Cormorant Garamond,serif;font-size:14px;font-style:
+      lockChat();
+      return;
+    }
+    setLoading(false);
+  } catch (err) {
+    typingBubble.classList.remove('typing');
+    typingBubble.textContent = 'Connection error. The API may be loading — try again in a moment.';
+    setLoading(false);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var input = document.getElementById('chatInput');
+  if (input) {
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
